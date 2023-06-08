@@ -1,7 +1,7 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
-const HelmetProvider = ({ title }) => {
+const HelmetComponent = ({ title }) => {
   return (
     <Helmet>
       <title>{`Foreign Accent | ${title}`}</title>
@@ -9,4 +9,4 @@ const HelmetProvider = ({ title }) => {
   );
 };
 
-export default HelmetProvider;
+export default HelmetComponent;

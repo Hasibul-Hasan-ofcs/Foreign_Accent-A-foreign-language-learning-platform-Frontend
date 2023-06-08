@@ -1,10 +1,10 @@
 import "./App.css";
-import HelmetProvider from "./components/controllers/HelmetProvider";
+import HelmetComponent from "./components/controllers/HelmetComponent";
 
 function App() {
   return (
     <div>
-      <HelmetProvider title="Home"></HelmetProvider>
+      <HelmetComponent title="Home"></HelmetComponent>
       Welcome to app page
     </div>
   );
