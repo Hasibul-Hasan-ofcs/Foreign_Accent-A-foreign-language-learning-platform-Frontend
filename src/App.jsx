@@ -1,11 +1,12 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import HelmetComponent from "./components/controllers/HelmetComponent";
+import NavBar from "./components/navigation/NavBar";
 
 function App() {
   return (
     <div>
-      <HelmetComponent title="Home"></HelmetComponent>
-      Welcome to app page
+      <NavBar></NavBar>
+      <Outlet />
     </div>
   );
 }
