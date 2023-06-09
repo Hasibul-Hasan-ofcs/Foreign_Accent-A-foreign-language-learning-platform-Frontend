@@ -7,10 +7,14 @@ import HelmetComponent from "../components/controllers/HelmetComponent";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 
+const image_upload_api_key = import.meta.env.VITE_Image_Upload_Api_Key;
+
 const Signup = () => {
   const { createUser, user, googlePopUpSignIn, loading } =
     useContext(AuthContext);
   const navigate = useNavigate();
+
+  // react-form-hook
   const {
     register,
     handleSubmit,
@@ -18,8 +22,9 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${image_upload_api_key}`;
+
   const onSubmit = (data) => {
-    console.log("hitting");
     const {
       username,
       email,
@@ -31,7 +36,42 @@ const Signup = () => {
       imgFile,
     } = data;
 
-    console.log(data);
+    const formData = new FormData();
+    formData.append("image", imgFile[0]);
+
+    fetch(img_hosting_url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgRes) => {
+        console.log(imgRes);
+        if (imgRes.success) {
+          const img_url = imgRes.data.display_url;
+
+          const allDataForNewUser = {
+            username,
+            email,
+            password,
+            confirmPassword,
+            phone,
+            address,
+            gender,
+            img_url,
+          };
+
+          fetch("https://foreignaccent.vercel.app/users", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(allDataForNewUser),
+          })
+            .then((result) => result.json())
+            .then((ack) => console.log(ack));
+        }
+      });
+
     createUser(email, password)
       .then((userCredential) => {
         console.log(userCredential);
@@ -125,7 +165,7 @@ const Signup = () => {
                     minLength: 6,
                     maxLength: 15,
                     pattern:
-                      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?([^\w\s]|[_])).{5,15}$/,
+                      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?([^\w\s]|[_])).{6,15}$/,
                   })}
                 />
                 {errors.password?.type === "required" && (
@@ -133,7 +173,7 @@ const Signup = () => {
                 )}
                 {errors.password?.type === "minLength" && (
                   <span className="text-red-700">
-                    Password should be atleast of 5 characters
+                    Password should be atleast of 6 characters
                   </span>
                 )}
                 {errors.password?.type === "maxLength" && (
@@ -141,7 +181,7 @@ const Signup = () => {
                 )}
                 {errors.password?.type === "pattern" && (
                   <span className="text-red-700">
-                    Password should be minimum of 5 characters, maximum of 15
+                    Password should be minimum of 6 characters, maximum of 15
                     characters, at least one lowercase, one uppercase, one
                     number and one special character
                   </span>
@@ -158,7 +198,7 @@ const Signup = () => {
                     minLength: 6,
                     maxLength: 15,
                     pattern:
-                      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?([^\w\s]|[_])).{5,15}$/,
+                      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?([^\w\s]|[_])).{6,15}$/,
                   })}
                 />
                 {errors.confirmPassword?.type === "required" && (
@@ -166,7 +206,7 @@ const Signup = () => {
                 )}
                 {errors.confirmPassword?.type === "minLength" && (
                   <span className="text-red-700">
-                    Password should be atleast of 5 characters
+                    Password should be atleast of 6 characters
                   </span>
                 )}
                 {errors.confirmPassword?.type === "maxLength" && (
@@ -174,7 +214,7 @@ const Signup = () => {
                 )}
                 {errors.confirmPassword?.type === "pattern" && (
                   <span className="text-red-700">
-                    Password should be minimum of 5 characters, maximum of 15
+                    Password should be minimum of 6 characters, maximum of 15
                     characters, at least one lowercase, one uppercase, one
                     number and one special character
                   </span>

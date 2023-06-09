@@ -7,9 +7,12 @@ import { BiHide, BiShow } from "react-icons/bi";
 import HelmetComponent from "../components/controllers/HelmetComponent";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Bars } from "react-loader-spinner";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
-  const { login, user, googlePopUpSignIn, loading } = useContext(AuthContext);
+  const { login, user, googlePopUpSignIn, loading, setLoading } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -44,7 +47,19 @@ const Login = () => {
 
         navigate("/");
       })
-      .catch((err) => setErrorState(err.message));
+      .catch((err) => {
+        setLoading(false);
+        toast.error(`Email or Password is incorrect`, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
   };
 
   const handleGoogleLogin = () => {
@@ -130,7 +145,19 @@ const Login = () => {
                 type="submit"
                 className="btn bg-yellow-600 text-white hover:bg-yellow-700"
               >
-                Log in
+                {loading ? (
+                  <Bars
+                    height="20"
+                    width="20"
+                    color="#fff"
+                    ariaLabel="bars-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                  />
+                ) : (
+                  <span>Log in</span>
+                )}
               </button>
             </form>
 
@@ -157,6 +184,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
