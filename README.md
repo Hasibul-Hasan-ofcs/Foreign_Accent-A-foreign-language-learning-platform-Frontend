@@ -1,18 +1,14 @@
-# Foreign Accent
+# <img src="./src/assets/img/mainlogo.png" alt="alt" height="25px"> Foreign Accent
 
 <br/>
 
 ## Live Site Link
-
----
 
 https://foreign-accent.web.app
 
 <br/>
 
 ## Website features
-
----
 
 - this project is on a Foreign Language Learning platform during summer school camp.
 - Admin role, Instructor role, user role for individual feature access.
@@ -23,8 +19,6 @@ https://foreign-accent.web.app
 <br/>
 
 ## Used packages/technology name
-
----
 
 - react-helmet-async
 - react-icons
