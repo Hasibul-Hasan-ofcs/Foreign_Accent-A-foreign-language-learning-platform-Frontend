@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import LANGIMG from "../assets/img/lang_bg01.png";
 import GOOGLEIMG from "../assets/img/google.png";
 import { Link } from "react-router-dom";
+import { BiHide, BiShow } from "react-icons/bi";
+import HelmetComponent from "../components/controllers/HelmetComponent";
 
 const Login = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
   const {
     register,
     handleSubmit,
@@ -17,6 +25,7 @@ const Login = () => {
 
   return (
     <div className="w-full ">
+      <HelmetComponent title="Login"></HelmetComponent>
       <div className="container mx-auto flex flex-col-reverse lg:flex-row py-28">
         <div className="left-portion w-full lg:w-1/2 px-2 md:px-10 flex items-center justify-center">
           <img src={LANGIMG} className="grayscale" />
@@ -39,12 +48,27 @@ const Login = () => {
               />
 
               {/* include validation with required or other standard HTML validation rules */}
-              <input
-                type="password"
-                placeholder="password"
-                className="input input-bordered w-full"
-                {...register("password", { required: true })}
-              />
+
+              <div className="relative">
+                <input
+                  type={passwordVisible ? "text" : "password"}
+                  placeholder="Password"
+                  className="input input-bordered w-full"
+                  {...register("password", { required: true })}
+                />
+                <button
+                  type="button"
+                  className="absolute top-1/2 right-3 transform -translate-y-1/2 bg-transparent text-gray-600 hover:text-gray-800 focus:outline-none"
+                  onClick={togglePasswordVisibility}
+                >
+                  {passwordVisible ? (
+                    <BiShow className="h-6 w-6" />
+                  ) : (
+                    <BiHide className="h-6 w-6" />
+                  )}
+                </button>
+              </div>
+
               {/* errors will return when field validation fails  */}
               {errors.exampleRequired && <span>This field is required</span>}
 

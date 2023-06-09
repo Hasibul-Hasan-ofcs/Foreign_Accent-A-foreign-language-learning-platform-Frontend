@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import LANGIMG from "../assets/img/lang_bg01.png";
 import GOOGLEIMG from "../assets/img/google.png";
 import { Link } from "react-router-dom";
+import HelmetComponent from "../components/controllers/HelmetComponent";
 
 const Signup = () => {
   const {
@@ -17,6 +18,7 @@ const Signup = () => {
 
   return (
     <div className="w-full ">
+      <HelmetComponent title="Signup"></HelmetComponent>
       <div className="container mx-auto flex flex-col-reverse lg:flex-row py-28">
         <div className="left-portion w-full lg:w-1/2 px-2 md:px-10 flex items-center justify-center">
           <img src={LANGIMG} className="grayscale" />
