@@ -62,21 +62,16 @@ const NavBar = () => {
               className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
+                <ActiveRoute to="/">Home</ActiveRoute>
               </li>
               <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
+                <ActiveRoute to="/instructors">Instructors</ActiveRoute>
               </li>
               <li>
-                <a>Item 3</a>
+                <ActiveRoute to="/classes">Classes</ActiveRoute>
+              </li>
+              <li>
+                <ActiveRoute to="/dashboard">Dashboard</ActiveRoute>
               </li>
             </ul>
           </div>
