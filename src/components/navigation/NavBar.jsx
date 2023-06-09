@@ -121,7 +121,7 @@ const NavBar = () => {
         </div>
         <div className="navbar-end">
           <Link
-            to="/"
+            to="/login"
             className="btn btn-outline text-yellow-600 border-yellow-600 hover:bg-yellow-600 hover:border-yellow-600"
           >
             Login
