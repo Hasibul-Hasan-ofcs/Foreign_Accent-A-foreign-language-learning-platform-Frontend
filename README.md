@@ -2,15 +2,23 @@
 
 <br/>
 
+## Live Site Link
+
+---
+
+https://foreign-accent.web.app
+
+<br/>
+
 ## Website features
 
 ---
 
-- Foreign Language Learning platform.
--
--
--
--
+- this project is on a Foreign Language Learning platform during summer school camp.
+- Admin role, Instructor role, user role for individual feature access.
+- Real time Payment system with stripe.
+- Dashboard for individual roles to access individual data/record.
+- Admin approval system for role updates or class approvals.
 
 <br/>
 
@@ -19,15 +27,7 @@
 ---
 
 - react-helmet-async
--
--
--
--
-
-<br/>
-
-## Live Site Link
-
----
-
-https://foreign-accent.web.app
+- react-icons
+- react-hook-form
+- react-toastify
+- sweet-alert etc.
