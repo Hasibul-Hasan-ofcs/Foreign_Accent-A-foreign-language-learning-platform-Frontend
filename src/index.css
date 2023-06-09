@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.curve_line_bg_light {
+  background: url("./assets/svg/curve_line_bg.svg");
+}
