@@ -30,3 +30,9 @@ body {
 .curve_line_bg_light {
   background: url("./assets/svg/curve_line_bg.svg");
 }
+
+/* for active route */
+.active {
+  transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  position: relative;
+}

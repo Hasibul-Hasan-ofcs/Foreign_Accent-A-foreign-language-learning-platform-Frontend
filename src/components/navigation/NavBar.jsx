@@ -1,6 +1,7 @@
 import React from "react";
 import LOGOMAIN from "../../assets/img/mainlogo.png";
 import { Link } from "react-router-dom";
+import ActiveRoute from "../controllers/ActiveRoute";
 
 const NavBar = () => {
   const temp = (
@@ -92,16 +93,16 @@ const NavBar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to="/">Home</Link>
+              <ActiveRoute to="/">Home</ActiveRoute>
             </li>
             <li>
-              <Link to="/instructors">Instructors</Link>
+              <ActiveRoute to="/instructors">Instructors</ActiveRoute>
             </li>
             <li>
-              <Link to="/classes">Classes</Link>
+              <ActiveRoute to="/classes">Classes</ActiveRoute>
             </li>
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <ActiveRoute to="/dashboard">Dashboard</ActiveRoute>
             </li>
 
             {/* <li tabIndex={0}>
