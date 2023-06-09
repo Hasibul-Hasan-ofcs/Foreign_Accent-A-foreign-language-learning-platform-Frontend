@@ -10,7 +10,7 @@ https://foreign-accent.web.app
 
 ## Website features
 
-- this project is on a Foreign Language Learning platform during summer school camp.
+- this project is on a Foreign Language Learning platform during summer camp learning school.
 - Admin role, Instructor role, user role for individual feature access.
 - Real time Payment system with stripe.
 - Dashboard for individual roles to access individual data/record.
