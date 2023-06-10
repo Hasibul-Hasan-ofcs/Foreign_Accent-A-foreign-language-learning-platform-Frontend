@@ -47,3 +47,31 @@ body {
 .aspect-banner {
   aspect-ratio: 20/9;
 }
+
+/* swiper */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 50px !important;
+  height: 70px !important;
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 20;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px !important;
+  font-weight: bolder;
+  line-height: 40px;
+  color: #ca8a04;
+}
+
+.swiper-button-prev {
+  left: 10px !important;
+}
+
+.swiper-button-next {
+  right: 10px !important;
+}
+
+/* swiper end */

@@ -3,7 +3,8 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Pagination } from "swiper";
+import "swiper/css/navigation";
+import { Autoplay, Navigation, Pagination } from "swiper";
 import SLIDEIMG01 from "../../assets/img/banner01.jpg";
 import SLIDEIMG02 from "../../assets/img/banner02.jpg";
 import SLIDEIMG03 from "../../assets/img/banner03.jpg";
@@ -21,7 +22,8 @@ const Header = () => {
             delay: 7000, // delay between slides in milliseconds
             disableOnInteraction: false,
           }}
-          modules={[Pagination, Autoplay]}
+          navigation={true}
+          modules={[Pagination, Autoplay, Navigation]}
           className="mySwiper"
         >
           <SwiperSlide className="cursor-grab">
