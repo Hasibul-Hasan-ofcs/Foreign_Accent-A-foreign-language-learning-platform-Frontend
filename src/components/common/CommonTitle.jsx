@@ -6,7 +6,7 @@ const CommonTitle = ({ mainTitle, subTitle }) => {
       <h1 className="text-3xl font-mons text-center text-yellow-600">
         {mainTitle}
       </h1>
-      <p className="text-center text-lg text-slate-700">{subTitle}</p>
+      <p className="text-center text-sm text-slate-500">{subTitle}</p>
     </>
   );
 };
