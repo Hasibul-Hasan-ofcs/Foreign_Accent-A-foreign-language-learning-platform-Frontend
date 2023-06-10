@@ -4,9 +4,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper";
-import SLIDEIMG01 from "../../assets/img/slide01.jpg";
-// import SLIDEIMG02 from "../../assets/img/slide02.jpg";
-// import SLIDEIMG03 from "../../assets/img/slide03.png";
+import SLIDEIMG01 from "../../assets/img/banner01.jpg";
+import SLIDEIMG02 from "../../assets/img/banner02.jpg";
+import SLIDEIMG03 from "../../assets/img/banner03.jpg";
+import SLIDEIMG04 from "../../assets/img/banner04.jpg";
 
 const Header = () => {
   return (
@@ -23,14 +24,17 @@ const Header = () => {
           modules={[Pagination, Autoplay]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <img src={SLIDEIMG01} />
+          <SwiperSlide className="cursor-grab">
+            <img src={SLIDEIMG01} className="w-full aspect-banner" />
           </SwiperSlide>
-          <SwiperSlide>
-            <img src={SLIDEIMG01} />
+          <SwiperSlide className="cursor-grab">
+            <img src={SLIDEIMG02} className="w-full aspect-banner" />
           </SwiperSlide>
-          <SwiperSlide>
-            <img src={SLIDEIMG01} />
+          <SwiperSlide className="cursor-grab">
+            <img src={SLIDEIMG03} className="w-full aspect-banner" />
+          </SwiperSlide>
+          <SwiperSlide className="cursor-grab">
+            <img src={SLIDEIMG04} className="w-full aspect-banner" />
           </SwiperSlide>
         </Swiper>
       </div>
