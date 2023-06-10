@@ -12,7 +12,7 @@ const NavBar = () => {
     logout();
   };
 
-  console.log(user && user.email);
+  // console.log(user && user.email);
   useEffect(() => {
     if (user) {
       fetch(`https://foreignaccent.vercel.app/users?email=${user?.email}`)

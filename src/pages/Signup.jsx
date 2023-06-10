@@ -45,7 +45,7 @@ const Signup = () => {
     })
       .then((res) => res.json())
       .then((imgRes) => {
-        console.log(imgRes);
+        // console.log(imgRes);
         if (imgRes.success) {
           const img_url = imgRes.data.display_url;
 
