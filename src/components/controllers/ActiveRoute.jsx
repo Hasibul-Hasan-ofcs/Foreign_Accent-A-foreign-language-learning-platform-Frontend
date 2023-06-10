@@ -7,7 +7,7 @@ const ActiveRoute = ({ to, children, classes }) => {
       to={to}
       className={({ isActive }) =>
         isActive
-          ? `active bg-transparent text-slate-800 font-bold border border-t-0 border-x-0 border-b-yellow-600`
+          ? `active bg-transparent text-slate-800 font-bold border border-t-0 border-x-0 border-b-yellow-600 rounded-none`
           : `text-slate-500`
       }
     >

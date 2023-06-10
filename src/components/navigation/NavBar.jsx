@@ -25,7 +25,7 @@ const NavBar = () => {
     <div className="w-full shadow">
       <div className="navbar container mx-auto bg-base-100">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown z-10">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
