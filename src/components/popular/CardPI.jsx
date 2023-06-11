@@ -6,9 +6,7 @@ const CardPI = () => {
   return (
     <div className="shadow-md rounded-xl p-7 border">
       <img src={TEMPIMG} className="w-full aspect-img01 rounded-xl" />
-      <h2 className="text-gray-700 text-2xl font-bold pt-5">
-        Japanese For Beginers
-      </h2>
+      <h2 className="text-gray-700 text-2xl font-bold pt-5">Instructor Name</h2>
 
       <div className="flex justify-between py-5">
         <div className="flex gap-1 items-center">
