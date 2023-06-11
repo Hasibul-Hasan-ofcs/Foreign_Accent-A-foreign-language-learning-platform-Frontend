@@ -32,9 +32,9 @@ const Header = () => {
           <SwiperSlide className="cursor-grab">
             <img src={SLIDEIMG02} className="w-full aspect-banner" />
           </SwiperSlide>
-          <SwiperSlide className="cursor-grab">
+          {/* <SwiperSlide className="cursor-grab">
             <img src={SLIDEIMG03} className="w-full aspect-banner" />
-          </SwiperSlide>
+          </SwiperSlide> */}
           <SwiperSlide className="cursor-grab">
             <img src={SLIDEIMG04} className="w-full aspect-banner" />
           </SwiperSlide>

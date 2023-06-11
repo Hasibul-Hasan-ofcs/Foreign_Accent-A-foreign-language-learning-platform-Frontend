@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { FaHeadset, FaPlay } from "react-icons/fa";
 import { MdMoreTime } from "react-icons/md";
-
 import { motion } from "framer-motion";
 
 const IntroComponent = () => {

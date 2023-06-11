@@ -10,6 +10,7 @@ const CardPC = () => {
       <h2 className="text-gray-700 text-2xl font-bold pt-5">
         Japanese For Beginers
       </h2>
+      <p className="pt-1 text-sm text-gray-600">Instructor Name</p>
       <p className="pt-5 text-sm text-gray-500">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, id neque!
         Commodi tempore deleniti ipsum facilis repudiandae esse ipsa porro.

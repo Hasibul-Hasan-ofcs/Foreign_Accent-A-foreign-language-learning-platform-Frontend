@@ -7,7 +7,14 @@ const CounterComponent = () => {
       <div className="container flex flex-col md:flex-row justify-evenly">
         <div className="flex flex-col items-center  gap-4 px-5 w-full lg:w-1/3">
           <h1 className="text-6xl text-yellow-600 font-extrabold ">
-            <CountUp start={0} end={100} duration={5} enableScrollSpy={true} />+
+            <CountUp
+              start={0}
+              end={100}
+              duration={5}
+              enableScrollSpy={true}
+              scrollSpyOnce={true}
+            />
+            +
           </h1>
           <p className="text-slate-500 text-2xl">Students</p>
         </div>
@@ -16,7 +23,14 @@ const CounterComponent = () => {
 
         <div className="flex flex-col items-center gap-4 px-5 w-full lg:w-1/3">
           <h1 className="text-6xl text-yellow-600 font-extrabold ">
-            <CountUp start={0} end={100} duration={5} enableScrollSpy={true} />+
+            <CountUp
+              start={0}
+              end={100}
+              duration={5}
+              enableScrollSpy={true}
+              scrollSpyOnce={true}
+            />
+            +
           </h1>
           <p className="text-slate-500 text-2xl">Instructors</p>
         </div>
@@ -25,7 +39,14 @@ const CounterComponent = () => {
 
         <div className="flex flex-col items-center gap-4 px-5 w-full lg:w-1/3">
           <h1 className="text-6xl text-yellow-600 font-extrabold ">
-            <CountUp start={0} end={100} duration={5} enableScrollSpy={true} />+
+            <CountUp
+              start={0}
+              end={100}
+              duration={5}
+              enableScrollSpy={true}
+              scrollSpyOnce={true}
+            />
+            +
           </h1>
           <p className="text-slate-500 text-2xl">Classes</p>
         </div>

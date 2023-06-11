@@ -13,6 +13,11 @@ import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 import AuthProvider from "./providers/AuthProvider.jsx";
 import PrivateRoute from "./components/private/PrivateRoute.jsx";
+import MySelectedClasses from "./pages/MySelectedClasses.jsx";
+import MyEnrolledClasses from "./pages/MyEnrolledClasses.jsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -38,6 +43,16 @@ const router = createBrowserRouter([
             <Dashboard></Dashboard>
           </PrivateRoute>
         ),
+        children: [
+          {
+            path: "/dashboard/selected-classes",
+            element: <MySelectedClasses></MySelectedClasses>,
+          },
+          {
+            path: "/dashboard/enrolled-classes",
+            element: <MyEnrolledClasses></MyEnrolledClasses>,
+          },
+        ],
       },
       {
         path: "/login",
@@ -59,7 +74,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>
       <AuthProvider>
-        <RouterProvider router={router} />
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
       </AuthProvider>
     </HelmetProvider>
   </React.StrictMode>

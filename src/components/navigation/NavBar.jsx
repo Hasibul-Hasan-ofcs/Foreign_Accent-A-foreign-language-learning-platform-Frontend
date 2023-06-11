@@ -82,7 +82,9 @@ const NavBar = () => {
               <ActiveRoute to="/classes">Classes</ActiveRoute>
             </li>
             <li>
-              <ActiveRoute to="/dashboard">Dashboard</ActiveRoute>
+              <ActiveRoute to="/dashboard/selected-classes">
+                Dashboard
+              </ActiveRoute>
             </li>
 
             {/* <li tabIndex={0}>
