@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import LANGIMG from "../assets/img/lang_bg01.png";
 import GOOGLEIMG from "../assets/img/google.png";
@@ -9,12 +9,15 @@ import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { Bars } from "react-loader-spinner";
 import { ToastContainer, toast } from "react-toastify";
+import { createUserDB } from "../components/js/SendUserData";
 
 const Login = () => {
   const { login, user, googlePopUpSignIn, loading, setLoading } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [upProfile, setUpProfile] = useState(false);
+  const [userCredentialState, setUserCredential] = useState(null);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -45,7 +48,7 @@ const Login = () => {
           showConfirmButton: true,
         });
 
-        navigate("/");
+        navigate("/#top");
       })
       .catch((err) => {
         setLoading(false);
@@ -67,6 +70,18 @@ const Login = () => {
       .then((result) => {
         const userCurrent = result.user;
 
+        const allDataForNewUser = {
+          username: userCurrent.displayName,
+          email: userCurrent.email,
+          phone: "",
+          address: "",
+          gender: "",
+          img_url: userCurrent.photoURL,
+        };
+
+        createUserDB(allDataForNewUser);
+        setUserCredential(allDataForNewUser);
+
         Swal.fire({
           position: "center",
           icon: "success",
@@ -79,10 +94,26 @@ const Login = () => {
           // timer: 1500,
         });
 
-        navigate("/");
+        navigate("/#top");
       })
       .catch((err) => console.error(err.message));
   };
+
+  /*useEffect(() => {
+    if (upProfile === false) {
+      setUpProfile(!upProfile);
+    } else {
+      if (!userCredentialState == null) {
+        const { username, img_url } = userCredentialState;
+        updateUser(username, img_url)
+          .then((credential) => {
+            setLoading(false);
+            navigate("/");
+          })
+          .catch(() => setLoading(false));
+      }
+    }
+  }, [userCredentialState]);*/
 
   return (
     <div className="w-full ">

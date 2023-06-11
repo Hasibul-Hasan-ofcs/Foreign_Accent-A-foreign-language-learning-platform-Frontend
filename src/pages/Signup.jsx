@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import LANGIMG from "../assets/img/lang_bg01.png";
 import GOOGLEIMG from "../assets/img/google.png";
@@ -6,12 +6,24 @@ import { Link, useNavigate } from "react-router-dom";
 import HelmetComponent from "../components/controllers/HelmetComponent";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { createUserDB } from "../components/js/SendUserData";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const image_upload_api_key = import.meta.env.VITE_Image_Upload_Api_Key;
 
 const Signup = () => {
-  const { createUser, user, googlePopUpSignIn, loading } =
-    useContext(AuthContext);
+  const [upProfile, setUpProfile] = useState(false);
+  const [userCredentialState, setUserCredential] = useState(null);
+
+  const {
+    createUser,
+    user,
+    googlePopUpSignIn,
+    loading,
+    setLoading,
+    updateUser,
+  } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // react-form-hook
@@ -36,6 +48,19 @@ const Signup = () => {
       imgFile,
     } = data;
 
+    if (password !== confirmPassword) {
+      return toast.error(`Password and confirm password aren't same.`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+
     const formData = new FormData();
     formData.append("image", imgFile[0]);
 
@@ -52,26 +77,18 @@ const Signup = () => {
           const allDataForNewUser = {
             username,
             email,
-            password,
-            confirmPassword,
             phone,
             address,
             gender,
             img_url,
           };
 
-          fetch("https://foreignaccent.vercel.app/users", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(allDataForNewUser),
-          })
-            .then((result) => result.json())
-            .then((ack) => console.log(ack));
+          // backend
+          createUserDB(allDataForNewUser);
         }
       });
 
+    // firebase
     createUser(email, password)
       .then((userCredential) => {
         console.log(userCredential);
@@ -89,15 +106,28 @@ const Signup = () => {
           showConfirmButton: true,
         });
 
-        navigate("/");
+        navigate("/#top");
       })
-      .catch((err) => console.error(err));
+      .catch(() => setLoading(false));
   };
 
   const handleGoogleLogin = () => {
     googlePopUpSignIn()
       .then((result) => {
         const userCurrent = result.user;
+        console.log(userCurrent);
+
+        const allDataForNewUser = {
+          username: userCurrent.displayName,
+          email: userCurrent.email,
+          phone: "",
+          address: "",
+          gender: "",
+          img_url: userCurrent.photoURL,
+        };
+
+        createUserDB(allDataForNewUser);
+        setUserCredential(allDataForNewUser);
 
         Swal.fire({
           position: "center",
@@ -111,10 +141,26 @@ const Signup = () => {
           // timer: 1500,
         });
 
-        navigate("/");
+        navigate("/#top");
       })
-      .catch((err) => console.error(err.message));
+      .catch(() => setLoading(false));
   };
+
+  /*useEffect(() => {
+    if (upProfile === false) {
+      setUpProfile(!upProfile);
+    } else {
+      if (!userCredentialState == null) {
+        const { username, img_url } = userCredentialState;
+        updateUser(username, img_url)
+          .then((credential) => {
+            setLoading(false);
+            navigate("/");
+          })
+          .catch(() => setLoading(false));
+      }
+    }
+  }, [userCredentialState]);*/
 
   return (
     <div className="w-full ">
@@ -291,6 +337,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

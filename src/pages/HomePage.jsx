@@ -8,7 +8,7 @@ import PopularInstructors from "../components/popular/PopularInstructors";
 
 const HomePage = () => {
   return (
-    <div className="w-full">
+    <div className="w-full" id="top">
       <div className="container mx-auto">
         <HelmetComponent title="Home"></HelmetComponent>
         <Header></Header>

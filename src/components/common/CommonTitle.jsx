@@ -2,12 +2,12 @@ import React from "react";
 
 const CommonTitle = ({ mainTitle, subTitle }) => {
   return (
-    <>
-      <h1 className="text-3xl font-mons text-center text-yellow-600">
+    <div className="flex flex-col md:flex-row gap-3 md:gap-0">
+      <h1 className="text-3xl font-mons text-yellow-600 w-full md:w-1/2">
         {mainTitle}
       </h1>
-      <p className="text-center text-sm text-slate-500">{subTitle}</p>
-    </>
+      <p className="text-sm text-slate-500 w-full md:w-1/2">{subTitle}</p>
+    </div>
   );
 };
 

@@ -123,7 +123,7 @@ const NavBar = () => {
                   tabIndex={0}
                   className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 z-20"
                 >
-                  <li>
+                  {/* <li>
                     <a className="justify-between">
                       Profile
                       <span className="badge">New</span>
@@ -131,7 +131,7 @@ const NavBar = () => {
                   </li>
                   <li>
                     <a>Settings</a>
-                  </li>
+                  </li> */}
                   <li>
                     <label className="swap swap-rotate">
                       {/* this hidden checkbox controls the state */}

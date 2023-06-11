@@ -9,6 +9,7 @@ html,
 body {
   /* font-family: "Quicksand", sans-serif; */
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
 .font-mons {
@@ -48,6 +49,10 @@ body {
   aspect-ratio: 20/9;
 }
 
+.aspect-img01 {
+  aspect-ratio: 3/2;
+}
+
 /* swiper */
 .swiper-button-prev,
 .swiper-button-next {
@@ -56,6 +61,13 @@ body {
   border-radius: 10px;
   background-color: #fff;
   z-index: 20;
+}
+
+@media (max-width: 572px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
 }
 
 .swiper-button-prev::after,
