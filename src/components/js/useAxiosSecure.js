@@ -5,7 +5,7 @@ import axios from "axios";
 
 const axiosSecure = axios.create({
   // baseURL: "https://foreignaccent.vercel.app",
-  baseURL: "http://localhost:5000",
+  baseURL: "https://foreignaccent.vercel.app",
 });
 
 const useAxiosSecure = () => {
@@ -23,17 +23,7 @@ const useAxiosSecure = () => {
     });
 
     axiosSecure.interceptors.response.use(
-      (response) => {
-        // Do something with response
-        // For example, you can check the response status code
-        if (response.status === 200) {
-          // The request was successful
-        } else {
-          // The request failed
-        }
-        return response;
-      },
-
+      (response) => response,
       async (error) => {
         if (
           error.response &&

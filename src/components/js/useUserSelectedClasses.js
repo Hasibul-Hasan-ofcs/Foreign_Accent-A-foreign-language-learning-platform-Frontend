@@ -6,31 +6,34 @@ import axios from "axios";
 
 const useUserSelectedClasses = () => {
   const [axiosSecure] = useAxiosSecure();
+  const token = localStorage.getItem("access-token");
 
   const { user } = useContext(AuthContext);
 
   const { isLoading, refetch, data } = useQuery({
-    queryKey: ["user-selected-classes"],
+    queryKey: ["user-selected-classes", user?.email],
     queryFn: async () => {
-      const response = await axiosSecure(
-        `http://localhost:5000/dashboard?email=${user?.email}`
+      const response = await axiosSecure.get(
+        `https://foreignaccent.vercel.app/dashboard/user/selected-classes?email=${user?.email}`
       );
-      //   const response = await axios.get(
-      //     `http://localhost:5000/dashboard?email=${user?.email}`,
-      //     {
-      //       headers: {
-      //         Authorization: `Bearer ${localStorage.getItem("access-token")}`,
-      //       },
-      //     }
-      //   );
-      console.log("response axios");
       return response.data;
     },
   });
 
-  //   console.log(data);
+  console.log(data);
 
   return [isLoading, refetch, data];
 };
 
 export default useUserSelectedClasses;
+
+// const response = await fetch(
+//   `https://foreignaccent.vercel.app/dashboard/user/selected-classes?email=${user?.email}`,
+//   {
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `Bearer ${token}`,
+//     },
+//   }
+// );
+// return response.json();

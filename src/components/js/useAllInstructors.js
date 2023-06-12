@@ -7,7 +7,7 @@ const useAllInstructors = () => {
       const response = await fetch(
         "https://foreignaccent.vercel.app/instructors"
       );
-      // const response = await fetch("http://localhost:5000/instructors");
+      // const response = await fetch("https://foreignaccent.vercel.app/instructors");
       return response.json();
     },
   });

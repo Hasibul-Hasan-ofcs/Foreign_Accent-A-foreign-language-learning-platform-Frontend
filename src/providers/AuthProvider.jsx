@@ -56,7 +56,9 @@ const AuthProvider = ({ children }) => {
 
       if (loggedInUser) {
         axios
-          .post("http://localhost:5000/jwt", { email: loggedInUser.email })
+          .post("https://foreignaccent.vercel.app/jwt", {
+            email: loggedInUser.email,
+          })
           .then((data) =>
             localStorage.setItem("access-token", data.data.token)
           );

@@ -1,10 +1,56 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import TEMPIMG from "../../assets/img/404.jpg";
 import { FaStar, FaUsers } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProvider";
+import { toast } from "react-toastify";
+import { Bars } from "react-loader-spinner";
 
 const CardPC = ({ element }) => {
-  const { theme, setTheme } = useContext(AuthContext);
+  const { theme, setTheme, user } = useContext(AuthContext);
+  const token = localStorage.getItem("access-token");
+
+  const [load, setLoad] = useState(false);
+
+  const handleSelectClass = () => {
+    const { _id, ...newEl } = element;
+    element = { ...newEl, email: user.email };
+
+    console.log(element);
+    setLoad(true);
+
+    fetch(
+      `https://foreignaccent.vercel.app/dashboard/user/classes-selection?email=${user?.email}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(element),
+      }
+    )
+      .then((response) => {
+        console.log(response);
+        if (response) {
+          toast.success(`Class added to your selection list`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+        }
+
+        setLoad(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div
       className={`shadow-md rounded-xl p-7 ${
@@ -65,8 +111,25 @@ const CardPC = ({ element }) => {
           <span className="text-sm text-gray-500">{element?.rating}</span>
         </div> */}
 
-        <button className="btn rounded w-full text-white px-5 py-4 bg-yellow-600 hover:bg-yellow-700">
-          Select Class
+        <button
+          onClick={handleSelectClass}
+          className="btn rounded w-full text-white px-5 py-4 bg-yellow-600 hover:bg-yellow-700"
+        >
+          {load ? (
+            <span className="flex justify-center">
+              <Bars
+                height="20"
+                width="20"
+                color="#fff"
+                ariaLabel="bars-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            </span>
+          ) : (
+            <span>Select Class</span>
+          )}
         </button>
       </div>
     </div>

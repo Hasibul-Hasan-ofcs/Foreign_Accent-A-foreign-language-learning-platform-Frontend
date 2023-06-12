@@ -1,17 +1,17 @@
-import React, { useRef } from "react";
+import React from "react";
 import HelmetComponent from "../components/controllers/HelmetComponent";
 import { Link, Outlet } from "react-router-dom";
 import { AiFillCaretRight } from "react-icons/ai";
 import { BsCartCheckFill, BsFillCheckCircleFill } from "react-icons/bs";
-import { motion } from "framer-motion";
-import useUserSelectedClasses from "../components/js/useUserSelectedClasses";
+import useUser from "../components/js/useUser";
 
 const Dashboard = () => {
-  const constraintsRef1 = useRef(null);
-  const constraintsRef2 = useRef(null);
+  // const [isLoading, refetch, data] = useUserSelectedClasses();
+  // console.log(data);
 
-  const [, refetch, data] = useUserSelectedClasses();
-  console.log(data);
+  const [isUser] = useUser();
+
+  console.log(isUser);
 
   return (
     <div className="w-full">
@@ -33,28 +33,32 @@ const Dashboard = () => {
             {/* Sidebar content here */}
 
             <li>
-              <Link
-                to="selected-classes"
-                className="bg-yellow-50 py-3 my-1 shadow-md"
-              >
-                <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
-                  <BsCartCheckFill className="text-white text-2xl"></BsCartCheckFill>
-                </span>
+              {isUser && (
+                <Link
+                  to="selected-classes"
+                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                >
+                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                    <BsCartCheckFill className="text-white text-2xl"></BsCartCheckFill>
+                  </span>
 
-                <span>My Selected Classes</span>
-              </Link>
+                  <span>My Selected Classes</span>
+                </Link>
+              )}
             </li>
 
             <li>
-              <Link
-                to="enrolled-classes"
-                className="bg-yellow-50 py-3 my-1 shadow-md"
-              >
-                <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
-                  <BsFillCheckCircleFill className="text-white text-2xl"></BsFillCheckCircleFill>
-                </span>
-                <span>My Enrolled Classes</span>
-              </Link>
+              {isUser && (
+                <Link
+                  to="enrolled-classes"
+                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                >
+                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                    <BsFillCheckCircleFill className="text-white text-2xl"></BsFillCheckCircleFill>
+                  </span>
+                  <span>My Enrolled Classes</span>
+                </Link>
+              )}
             </li>
           </ul>
         </div>

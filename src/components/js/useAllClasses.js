@@ -5,7 +5,7 @@ const useAllClasses = () => {
     queryKey: ["classes-page-data"],
     queryFn: async () => {
       const response = await fetch("https://foreignaccent.vercel.app/classes");
-      // const response = await fetch("http://localhost:5000/classes");
+      // const response = await fetch("https://foreignaccent.vercel.app/classes");
       return response.json();
     },
   });
