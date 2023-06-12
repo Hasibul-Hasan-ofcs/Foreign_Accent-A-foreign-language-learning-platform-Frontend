@@ -7,6 +7,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const NavBar = () => {
   const { user, logout } = useContext(AuthContext);
   const [userData, setUserData] = useState(null);
+  const { theme, setTheme } = useContext(AuthContext);
 
   const logoutHandler = () => {
     logout();
@@ -21,9 +22,26 @@ const NavBar = () => {
     }
   }, [user]);
 
+  const themeChangehandler = () => {
+    console.log("click");
+    if (theme === false) {
+      setTheme(true);
+    } else {
+      setTheme(false);
+    }
+  };
+
   return (
-    <div className="w-full shadow">
-      <div className="navbar container mx-auto bg-base-100">
+    <div
+      className={`w-full shadow ${
+        theme === false ? "bg-slate-800" : "bg-white"
+      }`}
+    >
+      <div
+        className={`navbar container mx-auto bg-base-100 ${
+          theme === false ? "bg-slate-800" : "bg-white"
+        }`}
+      >
         <div className="navbar-start">
           <div className="dropdown z-10">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,7 +50,7 @@ const NavBar = () => {
                 className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                stroke={theme === false ? "#fff" : "#000"}
               >
                 <path
                   strokeLinecap="round"
@@ -44,7 +62,9 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className={`menu menu-sm dropdown-content mt-3 p-2 shadow ${
+                theme === false ? "bg-slate-700" : "bg-white"
+              } rounded-box w-52`}
             >
               <li>
                 <ActiveRoute to="/">Home</ActiveRoute>
@@ -63,7 +83,8 @@ const NavBar = () => {
           <div className="flex gap-2 items-center">
             <img src={LOGOMAIN} className="h-11 pe-2" />
             <a
-              className="normal-case text-xl font-extrabold cursor-pointer font-mons"
+              className={`normal-case text-xl font-extrabold cursor-pointer font-mons const 
+              ${theme === false ? "text-white" : "text-slate-900"}`}
               href="/"
             >
               Foreign Accent
@@ -137,7 +158,7 @@ const NavBar = () => {
                   <li>
                     <label className="swap swap-rotate">
                       {/* this hidden checkbox controls the state */}
-                      <input type="checkbox" />
+                      <input type="checkbox" onClick={themeChangehandler} />
 
                       {/* sun icon */}
                       <svg

@@ -4,10 +4,14 @@ import { Link, Outlet } from "react-router-dom";
 import { AiFillCaretRight } from "react-icons/ai";
 import { BsCartCheckFill, BsFillCheckCircleFill } from "react-icons/bs";
 import { motion } from "framer-motion";
+import useUserSelectedClasses from "../components/js/useUserSelectedClasses";
 
 const Dashboard = () => {
   const constraintsRef1 = useRef(null);
   const constraintsRef2 = useRef(null);
+
+  const [, refetch, data] = useUserSelectedClasses();
+  console.log(data);
 
   return (
     <div className="w-full">
