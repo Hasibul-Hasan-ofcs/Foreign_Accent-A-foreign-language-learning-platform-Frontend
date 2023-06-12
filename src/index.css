@@ -87,3 +87,13 @@ body {
 }
 
 /* swiper end */
+
+.truncate {
+  max-height: 3em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  /* display: -webkit-box; */
+  -webkit-line-clamp: 6;
+  /* -webkit-box-orient: vertical; */
+}
