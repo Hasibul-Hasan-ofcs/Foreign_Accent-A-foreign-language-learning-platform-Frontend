@@ -25,7 +25,8 @@ const ClassesCard = ({ element }) => {
     setLoad(true);
 
     fetch(
-      `https://foreignaccent.vercel.app/dashboard/user/classes-selection?email=${user?.email}`,
+      // `https://foreignaccent.vercel.app/dashboard/user/classes-selection?email=${user?.email}`,
+      `http://localhost:5000/dashboard/user/classes-selection?email=${user?.email}`,
       {
         method: "POST",
         headers: {
@@ -35,10 +36,13 @@ const ClassesCard = ({ element }) => {
         body: JSON.stringify(element),
       }
     )
+      .then((res) => res.json())
       .then((response) => {
-        console.log(response);
-        if (response) {
-          toast.success(`Class added to your selection list`, {
+        // console.log(response);
+
+        if (response.status === "available") {
+          setLoad(false);
+          return toast.error(`Class already exists`, {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -49,6 +53,17 @@ const ClassesCard = ({ element }) => {
             theme: "dark",
           });
         }
+
+        toast.success(`Class added to your selection list`, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
 
         setLoad(false);
       })

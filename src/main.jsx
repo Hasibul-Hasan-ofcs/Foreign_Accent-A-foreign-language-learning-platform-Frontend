@@ -11,12 +11,14 @@ import Classes from "./pages/Classes.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
+import PaymentHistory from "./pages/PaymentHistory.jsx";
 import AuthProvider from "./providers/AuthProvider.jsx";
 import PrivateRoute from "./components/private/PrivateRoute.jsx";
 import MySelectedClasses from "./pages/MySelectedClasses.jsx";
 import MyEnrolledClasses from "./pages/MyEnrolledClasses.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import UserRoute from "./components/private/UserRoute.jsx";
+import Payment from "./components/payment/payment.jsx";
 
 const queryClient = new QueryClient();
 
@@ -58,6 +60,22 @@ const router = createBrowserRouter([
             element: (
               <UserRoute>
                 <MyEnrolledClasses></MyEnrolledClasses>,
+              </UserRoute>
+            ),
+          },
+          {
+            path: "/dashboard/payment/:id/:price/:transaction_id",
+            element: (
+              <UserRoute>
+                <Payment></Payment>,
+              </UserRoute>
+            ),
+          },
+          {
+            path: "/dashboard/payment-history",
+            element: (
+              <UserRoute>
+                <PaymentHistory></PaymentHistory>,
               </UserRoute>
             ),
           },

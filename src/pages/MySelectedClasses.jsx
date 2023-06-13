@@ -95,9 +95,12 @@ const MySelectedClasses = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-2">
-                <button className="btn btn-success shadow-md w-full md:w-28 text-white">
+                <Link
+                  to={`/dashboard/payment/${el._id}/${el.price}/${el.transaction_id}`}
+                  className="btn btn-success shadow-md w-full md:w-28 text-white"
+                >
                   Payment
-                </button>
+                </Link>
 
                 <button
                   onClick={() => handleDeleteItem(el._id)}

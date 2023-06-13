@@ -2,8 +2,15 @@ import React from "react";
 import HelmetComponent from "../components/controllers/HelmetComponent";
 import { Link, Outlet } from "react-router-dom";
 import { AiFillCaretRight } from "react-icons/ai";
-import { BsCartCheckFill, BsFillCheckCircleFill } from "react-icons/bs";
+import {
+  BsCartCheckFill,
+  BsFillCheckCircleFill,
+  BsWallet,
+  BsWallet2,
+  BsWalletFill,
+} from "react-icons/bs";
 import useUser from "../components/js/useUser";
+import { FaMoneyBill } from "react-icons/fa";
 
 const Dashboard = () => {
   // const [isLoading, refetch, data] = useUserSelectedClasses();
@@ -60,6 +67,20 @@ const Dashboard = () => {
                 </Link>
               )}
             </li>
+
+            <li>
+              {isUser && (
+                <Link
+                  to="payment-history"
+                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                >
+                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                    <BsWalletFill className="text-white text-2xl"></BsWalletFill>
+                  </span>
+                  <span>Payment history</span>
+                </Link>
+              )}
+            </li>
           </ul>
         </div>
       </div>
@@ -67,7 +88,6 @@ const Dashboard = () => {
 
       <div className="container mx-auto">
         <HelmetComponent title="Dashboard"></HelmetComponent>
-
         <Outlet />
       </div>
     </div>
