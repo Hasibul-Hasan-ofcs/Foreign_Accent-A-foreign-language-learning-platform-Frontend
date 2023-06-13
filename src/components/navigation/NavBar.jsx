@@ -36,6 +36,7 @@ const NavBar = () => {
       className={`w-full shadow ${
         theme === false ? "bg-slate-800" : "bg-white"
       }`}
+      id="top"
     >
       <div
         className={`navbar container mx-auto bg-base-100 ${

@@ -3,13 +3,22 @@ import { FaChair, FaUsers } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { Bars } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ClassesCard = ({ element }) => {
   const { user } = useContext(AuthContext);
   const token = localStorage.getItem("access-token");
   const [load, setLoad] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleSelectClass = () => {
+    if (!user) {
+      Swal.fire("Please Login to select course.");
+      navigate("/login");
+    }
+
     const { _id, ...newEl } = element;
     element = { ...newEl, email: user.email };
 

@@ -4,52 +4,59 @@ import { FaStar, FaUsers } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { Bars } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CardPC = ({ element }) => {
   const { theme, setTheme, user } = useContext(AuthContext);
   const token = localStorage.getItem("access-token");
 
   const [load, setLoad] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSelectClass = () => {
-    const { _id, ...newEl } = element;
-    element = { ...newEl, email: user.email };
+  // const handleSelectClass = () => {
+  //   if (!user) {
+  //     Swal.fire("Please Login to select course.");
+  //     navigate("/login");
+  //   }
+  //   const { _id, ...newEl } = element;
+  //   element = { ...newEl, email: user.email };
 
-    console.log(element);
-    setLoad(true);
+  //   console.log(element);
+  //   setLoad(true);
 
-    fetch(
-      `https://foreignaccent.vercel.app/dashboard/user/classes-selection?email=${user?.email}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(element),
-      }
-    )
-      .then((response) => {
-        console.log(response);
-        if (response) {
-          toast.success(`Class added to your selection list`, {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
-        }
+  //   fetch(
+  //     `https://foreignaccent.vercel.app/dashboard/user/classes-selection?email=${user?.email}`,
+  //     {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //       body: JSON.stringify(element),
+  //     }
+  //   )
+  //     .then((response) => {
+  //       console.log(response);
+  //       if (response) {
+  //         toast.success(`Class added to your selection list`, {
+  //           position: "top-center",
+  //           autoClose: 5000,
+  //           hideProgressBar: false,
+  //           closeOnClick: true,
+  //           pauseOnHover: true,
+  //           draggable: true,
+  //           progress: undefined,
+  //           theme: "dark",
+  //         });
+  //       }
 
-        setLoad(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  //       setLoad(false);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   return (
     <div
@@ -111,7 +118,7 @@ const CardPC = ({ element }) => {
           <span className="text-sm text-gray-500">{element?.rating}</span>
         </div> */}
 
-        <button
+        {/* <button
           onClick={handleSelectClass}
           className="btn rounded w-full text-white px-5 py-4 bg-yellow-600 hover:bg-yellow-700"
         >
@@ -130,7 +137,7 @@ const CardPC = ({ element }) => {
           ) : (
             <span>Select Class</span>
           )}
-        </button>
+        </button> */}
       </div>
     </div>
   );
