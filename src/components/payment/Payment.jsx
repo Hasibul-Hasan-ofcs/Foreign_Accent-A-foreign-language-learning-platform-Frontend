@@ -9,7 +9,14 @@ import axios from "axios";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
-  let { id, price, transaction_id, class_name, instructor_name } = useParams();
+  let {
+    id,
+    price,
+    transaction_id,
+    class_name,
+    instructor_name,
+    instructor_email,
+  } = useParams();
   const { user } = useContext(AuthContext);
   const [userName, setUsername] = useState(null);
   const token = localStorage.getItem("access-token");
@@ -44,6 +51,7 @@ const Payment = () => {
           transaction_id={transaction_id}
           class_name={class_name}
           instructor_name={instructor_name}
+          instructor_email={instructor_email}
         ></CheckoutForm>
       </Elements>
     </div>

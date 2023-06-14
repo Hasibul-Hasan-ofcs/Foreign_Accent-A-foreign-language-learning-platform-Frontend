@@ -11,6 +11,7 @@ const CheckoutForm = ({
   transaction_id,
   class_name,
   instructor_name,
+  instructor_email,
 }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -98,7 +99,7 @@ const CheckoutForm = ({
 
       axios
         .patch(
-          `https://foreignaccent.vercel.app/dashboard/user/payment/${classId}`,
+          `http://localhost:5000/dashboard/user/payment/${classId}/${class_name}/${instructor_email}`,
           payment,
           {
             headers: {

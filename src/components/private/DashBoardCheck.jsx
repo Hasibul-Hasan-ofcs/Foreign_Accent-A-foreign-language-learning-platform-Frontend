@@ -22,7 +22,7 @@ const DashBoardCheck = () => {
           },
         }
       );
-      console.log(data);
+      // console.log(data);
       setIsRole(data?.role);
     })();
   }, []);

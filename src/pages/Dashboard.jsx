@@ -5,13 +5,16 @@ import { AiFillCaretRight } from "react-icons/ai";
 import {
   BsCartCheckFill,
   BsFillCheckCircleFill,
+  BsFillFileEarmarkSpreadsheetFill,
   BsWallet,
   BsWallet2,
   BsWalletFill,
 } from "react-icons/bs";
+import { IoMdAddCircle } from "react-icons/io";
 import useUser from "../components/js/useUser";
-import { FaMoneyBill } from "react-icons/fa";
+import { FaBookReader, FaMoneyBill, FaUser } from "react-icons/fa";
 import useInstructor from "../components/js/useInstructor";
+import useAdmin from "../components/js/useAdmin";
 
 const Dashboard = () => {
   // const [isLoading, refetch, data] = useUserSelectedClasses();
@@ -19,9 +22,11 @@ const Dashboard = () => {
 
   const [isUser] = useUser();
   const [isInstructor] = useInstructor();
+  const [isAdmin] = useAdmin();
 
   console.log(isUser && "user");
   console.log(isInstructor && "instructor");
+  console.log(isAdmin && "admin");
 
   return (
     <div className="w-full">
@@ -43,6 +48,30 @@ const Dashboard = () => {
             {/* Sidebar content here */}
 
             <li>
+              {isAdmin && (
+                <Link
+                  to="manage-classes"
+                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                >
+                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                    <BsFillFileEarmarkSpreadsheetFill className="text-white text-2xl"></BsFillFileEarmarkSpreadsheetFill>
+                  </span>
+
+                  <span>Manage Classes</span>
+                </Link>
+              )}
+              {isInstructor && (
+                <Link
+                  to="add-class"
+                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                >
+                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                    <IoMdAddCircle className="text-white text-2xl"></IoMdAddCircle>
+                  </span>
+
+                  <span>Add a New Class</span>
+                </Link>
+              )}
               {isUser && (
                 <Link
                   to="selected-classes"
@@ -58,6 +87,30 @@ const Dashboard = () => {
             </li>
 
             <li>
+              {isAdmin && (
+                <Link
+                  to="manage-users"
+                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                >
+                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                    <FaUser className="text-white text-2xl"></FaUser>
+                  </span>
+
+                  <span>Manage Users</span>
+                </Link>
+              )}
+              {isInstructor && (
+                <Link
+                  to="my-classes"
+                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                >
+                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                    <FaBookReader className="text-white text-2xl"></FaBookReader>
+                  </span>
+
+                  <span>My Classes</span>
+                </Link>
+              )}
               {isUser && (
                 <Link
                   to="enrolled-classes"

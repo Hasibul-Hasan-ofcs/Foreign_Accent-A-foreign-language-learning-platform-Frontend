@@ -9,8 +9,8 @@ const CounterComponent = () => {
           <h1 className="text-6xl text-yellow-600 font-extrabold ">
             <CountUp
               start={0}
-              end={100}
-              duration={5}
+              end={5}
+              duration={3}
               enableScrollSpy={true}
               scrollSpyOnce={true}
             />
@@ -25,8 +25,8 @@ const CounterComponent = () => {
           <h1 className="text-6xl text-yellow-600 font-extrabold ">
             <CountUp
               start={0}
-              end={100}
-              duration={5}
+              end={3}
+              duration={3}
               enableScrollSpy={true}
               scrollSpyOnce={true}
             />
@@ -41,8 +41,8 @@ const CounterComponent = () => {
           <h1 className="text-6xl text-yellow-600 font-extrabold ">
             <CountUp
               start={0}
-              end={100}
-              duration={5}
+              end={5}
+              duration={3}
               enableScrollSpy={true}
               scrollSpyOnce={true}
             />

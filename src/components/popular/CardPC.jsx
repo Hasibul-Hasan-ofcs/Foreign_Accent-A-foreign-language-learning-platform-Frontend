@@ -85,13 +85,13 @@ const CardPC = ({ element }) => {
       >
         {element?.instructor_name}
       </p>
-      <p
+      {/* <p
         className={`pt-5 text-sm  line-clamp-3 ${
           theme === false ? "text-slate-400" : "text-slate-500"
         }`}
       >
         {element?.class_topics?.join(", ")}
-      </p>
+      </p> */}
 
       <div className="flex justify-between pt-5">
         <div className="flex gap-1 items-center">

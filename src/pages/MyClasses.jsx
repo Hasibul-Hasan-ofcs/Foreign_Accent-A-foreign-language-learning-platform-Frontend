@@ -2,57 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
 
-const ManageClasses = () => {
+const MyClasses = () => {
   const { user, loading } = useContext(AuthContext);
   const [scData, setScData] = useState(null);
   const token = localStorage.getItem("access-token");
 
-  const handleApprove = (id) => {
-    fetch(
-      `https://foreignaccent.vercel.app/dashboard/admin/manage-status/${id}/approve`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setScData(data);
-        console.log(data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const handleDeny = (id) => {
-    fetch(
-      `https://foreignaccent.vercel.app/dashboard/admin/manage-status/${id}/deny`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setScData(data);
-        console.log(data);
-      })
-      .catch((err) => console.log(err));
-  };
-
   useEffect(() => {
     fetch(
       //   `https://foreignaccent.vercel.app/dashboard/instructor/classes?email=${user?.email}`,
-      `https://foreignaccent.vercel.app/classes?status=all`,
+      `https://foreignaccent.vercel.app/dashboard/instructor/classes?email=${user?.email}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +37,7 @@ const ManageClasses = () => {
             <Link to="/">Home</Link>
           </li>
           <li>Dashboard</li>
-          <li>Manage Classes</li>
+          <li>My Classes</li>
         </ul>
       </div>
 
@@ -104,36 +62,21 @@ const ManageClasses = () => {
                 <p className="pt-1 pb-3 text-sm text-gray-600">
                   {el.available_seats} Seats
                 </p>
-                <p className="pt-1 pb-3 text-yellow-600 text-2xl">
-                  ${el.price}
-                </p>
                 <p className="pt-1 pb-3 text-sm text-gray-600 font-bold">
                   {el.status}
                 </p>
               </div>
               <div className="flex flex-col gap-2">
-                <button
-                  disabled={el.status !== "pending" && true}
-                  className="btn btn-primary"
-                  onClick={() => handleApprove(el._id)}
-                >
-                  Approve
-                </button>
-                <button
-                  disabled={el.status !== "pending" && true}
-                  className="btn btn-neutral"
-                  onClick={() => handleDeny(el._id)}
-                >
-                  Deny
-                </button>
-
                 <Link
-                  to={`/dashboard/manage-classes/feedback/${el._id}/${el.instructor_email}`}
-                  // disabled={el.status !== "pending" || el.status !== "pending" && true}
+                  to={`/dashboard/my-classes/feedback/${
+                    el.feedback && el.feedback
+                  }`}
                   className="btn btn-success shadow-md w-full md:w-28 text-white"
                 >
-                  Send feedback
+                  Feedback
                 </Link>
+
+                <button className="btn btn-neutral">Update</button>
               </div>
             </div>
           );
@@ -142,4 +85,4 @@ const ManageClasses = () => {
   );
 };
 
-export default ManageClasses;
+export default MyClasses;

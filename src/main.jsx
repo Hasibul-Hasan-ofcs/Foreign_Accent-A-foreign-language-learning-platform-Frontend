@@ -23,6 +23,10 @@ import InstructorRoute from "./components/private/InstructorRoute.jsx";
 import Payment from "./components/payment/payment.jsx";
 import AddAClass from "./pages/AddAClass.jsx";
 import AdminRoute from "./components/private/AdminRoute.jsx";
+import MyClasses from "./pages/MyClasses.jsx";
+import Feedback from "./pages/Feedback.jsx";
+import ManageUsers from "./pages/ManageUsers.jsx";
+import AdminFeedBack from "./pages/AdminFeedBack.jsx";
 
 const queryClient = new QueryClient();
 
@@ -68,7 +72,7 @@ const router = createBrowserRouter([
             ),
           },
           {
-            path: "/dashboard/payment/:id/:price/:transaction_id/:class_name/:instructor_name",
+            path: "/dashboard/payment/:id/:price/:transaction_id/:class_name/:instructor_name/:instructor_email",
             element: (
               <UserRoute>
                 <Payment></Payment>,
@@ -92,10 +96,42 @@ const router = createBrowserRouter([
             ),
           },
           {
+            path: "/dashboard/my-classes",
+            element: (
+              <InstructorRoute>
+                <MyClasses></MyClasses>,
+              </InstructorRoute>
+            ),
+          },
+          {
+            path: "/dashboard/my-classes/feedback/:feedback",
+            element: (
+              <InstructorRoute>
+                <Feedback></Feedback>,
+              </InstructorRoute>
+            ),
+          },
+          {
             path: "/dashboard/manage-classes",
             element: (
               <AdminRoute>
                 <ManageClasses></ManageClasses>,
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "/dashboard/manage-classes/feedback/:id/:email",
+            element: (
+              <AdminRoute>
+                <AdminFeedBack></AdminFeedBack>,
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "/dashboard/manage-users",
+            element: (
+              <AdminRoute>
+                <ManageUsers></ManageUsers>,
               </AdminRoute>
             ),
           },
