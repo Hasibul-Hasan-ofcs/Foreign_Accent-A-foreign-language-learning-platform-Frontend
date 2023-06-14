@@ -83,7 +83,7 @@ const CardPC = ({ element }) => {
           theme === false ? "text-slate-300" : "text-slate-500"
         }`}
       >
-        {element?.instructor_name}
+        {element?.instructor_name || "Instructor"}
       </p>
       {/* <p
         className={`pt-5 text-sm  line-clamp-3 ${
