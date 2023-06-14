@@ -9,7 +9,7 @@ import axios from "axios";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
-  let { id, price, transaction_id } = useParams();
+  let { id, price, transaction_id, class_name, instructor_name } = useParams();
   const { user } = useContext(AuthContext);
   const [userName, setUsername] = useState(null);
   const token = localStorage.getItem("access-token");
@@ -20,7 +20,7 @@ const Payment = () => {
     (async function fetchData() {
       const { data } = await axios.get(
         // `https://foreignaccent.vercel.app/dashboard/user/selected-class/${id}`,
-        `http://localhost:5000/users?email=${user?.email}`,
+        `https://foreignaccent.vercel.app/users?email=${user?.email}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -42,6 +42,8 @@ const Payment = () => {
           email={user.email}
           classId={id}
           transaction_id={transaction_id}
+          class_name={class_name}
+          instructor_name={instructor_name}
         ></CheckoutForm>
       </Elements>
     </div>

@@ -26,7 +26,7 @@ const ClassesCard = ({ element }) => {
 
     fetch(
       // `https://foreignaccent.vercel.app/dashboard/user/classes-selection?email=${user?.email}`,
-      `http://localhost:5000/dashboard/user/classes-selection?email=${user?.email}`,
+      `https://foreignaccent.vercel.app/dashboard/user/classes-selection?email=${user?.email}`,
       {
         method: "POST",
         headers: {

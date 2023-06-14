@@ -9,6 +9,8 @@ const CheckoutForm = ({
   email,
   classId,
   transaction_id,
+  class_name,
+  instructor_name,
 }) => {
   const stripe = useStripe();
   const elements = useElements();
@@ -22,7 +24,7 @@ const CheckoutForm = ({
     if (price > 0) {
       axios
         .post(
-          "http://localhost:5000/create-payment-intent",
+          "https://foreignaccent.vercel.app/create-payment-intent",
           { price },
           {
             headers: {
@@ -76,6 +78,7 @@ const CheckoutForm = ({
       console.log(confirmError);
     }
     setProcessing(false);
+    console.log(paymentIntent);
 
     if (paymentIntent?.status === "succeeded") {
       setTransactionId(paymentIntent.id);
@@ -84,9 +87,18 @@ const CheckoutForm = ({
         transactionId: paymentIntent.id,
       };
 
+      const paymentData = {
+        email: email,
+        transactionId: paymentIntent.id,
+        price,
+        date: new Date(),
+        class_name,
+        instructor_name,
+      };
+
       axios
         .patch(
-          `http://localhost:5000/dashboard/user/payment/${classId}`,
+          `https://foreignaccent.vercel.app/dashboard/user/payment/${classId}`,
           payment,
           {
             headers: {
@@ -95,11 +107,25 @@ const CheckoutForm = ({
             },
           }
         )
-        .then((res) => {
-          console.log(res);
-          // if (res.data.result.insertedId) {
-          //   // display confirm
-          // }
+        .then((response) => {
+          console.log(response);
+        });
+
+      // save transaction data
+      axios
+        .post(
+          // `https://foreignaccent.vercel.app/dashboard/user/payment/${classId}`,
+          `https://foreignaccent.vercel.app/dashboard/user/payment/${classId}`,
+          paymentData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log("payment data place", response);
         });
     }
   };
@@ -143,7 +169,7 @@ const CheckoutForm = ({
       {(transaction_id !== "undefined" || transactionId) && (
         <p className="text-green-500">
           Transaction complete with transactionId:{" "}
-          {transaction_id || transactionId}
+          {transaction_id !== "undefined" || transactionId}
         </p>
       )}
     </div>

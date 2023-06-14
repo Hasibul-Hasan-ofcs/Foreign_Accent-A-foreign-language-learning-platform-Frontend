@@ -64,7 +64,7 @@ const router = createBrowserRouter([
             ),
           },
           {
-            path: "/dashboard/payment/:id/:price/:transaction_id",
+            path: "/dashboard/payment/:id/:price/:transaction_id/:class_name/:instructor_name",
             element: (
               <UserRoute>
                 <Payment></Payment>,

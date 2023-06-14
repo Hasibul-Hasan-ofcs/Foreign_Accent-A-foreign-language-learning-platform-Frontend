@@ -81,34 +81,40 @@ const MySelectedClasses = () => {
       {scData &&
         scData.map((el, indx) => {
           return (
-            <div
-              key={el._id}
-              className="border rounded-md shadow-md p-4 my-5 flex justify-between items-center flex-col md:flex-row"
-            >
-              <img src={el.class_image} className="h-44 rounded aspect-img01" />
-              <div className="border-l-2 border-gray-800 ps-2 flex flex-col justify-center">
-                <h2 className="text-gray-700 text-2xl font-bold pt-3">
-                  {el.class_name}
-                </h2>
-                <p className="pt-1 pb-3 text-sm text-gray-600">
-                  {el.instructor_name}
-                </p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <Link
-                  to={`/dashboard/payment/${el._id}/${el.price}/${el.transaction_id}`}
-                  className="btn btn-success shadow-md w-full md:w-28 text-white"
-                >
-                  Payment
-                </Link>
+            <div key={el._id}>
+              {el.transaction_id ? (
+                <></>
+              ) : (
+                <div className="border rounded-md shadow-md p-4 my-5 flex justify-between items-center flex-col md:flex-row">
+                  <img
+                    src={el.class_image}
+                    className="h-44 rounded aspect-img01"
+                  />
+                  <div className="border-l-2 border-gray-800 ps-2 flex flex-col justify-center">
+                    <h2 className="text-gray-700 text-2xl font-bold pt-3">
+                      {el.class_name}
+                    </h2>
+                    <p className="pt-1 pb-3 text-sm text-gray-600">
+                      {el.instructor_name}
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <Link
+                      to={`/dashboard/payment/${el._id}/${el.price}/${el.transaction_id}/${el.class_name}/${el.instructor_name}`}
+                      className="btn btn-success shadow-md w-full md:w-28 text-white"
+                    >
+                      Payment
+                    </Link>
 
-                <button
-                  onClick={() => handleDeleteItem(el._id)}
-                  className="btn btn-error shadow-md w-full md:w-28 text-white"
-                >
-                  Delete
-                </button>
-              </div>
+                    <button
+                      onClick={() => handleDeleteItem(el._id)}
+                      className="btn btn-error shadow-md w-full md:w-28 text-white"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           );
         })}
