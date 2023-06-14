@@ -23,6 +23,8 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState(false);
 
+  console.log(user);
+
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -59,9 +61,10 @@ const AuthProvider = ({ children }) => {
           .post("https://foreignaccent.vercel.app/jwt", {
             email: loggedInUser.email,
           })
-          .then((data) =>
-            localStorage.setItem("access-token", data.data.token)
-          );
+          .then((data) => {
+            localStorage.setItem("access-token", data.data.token);
+            setLoading(false);
+          });
       } else {
         localStorage.removeItem("access-token");
       }

@@ -11,14 +11,17 @@ import {
 } from "react-icons/bs";
 import useUser from "../components/js/useUser";
 import { FaMoneyBill } from "react-icons/fa";
+import useInstructor from "../components/js/useInstructor";
 
 const Dashboard = () => {
   // const [isLoading, refetch, data] = useUserSelectedClasses();
   // console.log(data);
 
   const [isUser] = useUser();
+  const [isInstructor] = useInstructor();
 
-  console.log(isUser);
+  console.log(isUser && "user");
+  console.log(isInstructor && "instructor");
 
   return (
     <div className="w-full">

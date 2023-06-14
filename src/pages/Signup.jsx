@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import { createUserDB } from "../components/js/SendUserData";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Bars } from "react-loader-spinner";
 
 const image_upload_api_key = import.meta.env.VITE_Image_Upload_Api_Key;
 
@@ -310,7 +311,19 @@ const Signup = () => {
                 type="submit"
                 className="btn bg-yellow-600 text-white hover:bg-yellow-700"
               >
-                Sign Up
+                {loading ? (
+                  <Bars
+                    height="20"
+                    width="20"
+                    color="#fff"
+                    ariaLabel="bars-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                  />
+                ) : (
+                  <span>Sign Up</span>
+                )}
               </button>
             </form>
 

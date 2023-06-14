@@ -3,6 +3,10 @@ import LOGOMAIN from "../../assets/img/mainlogo.png";
 import { Link } from "react-router-dom";
 import ActiveRoute from "../controllers/ActiveRoute";
 import { AuthContext } from "../../providers/AuthProvider";
+import useUser from "../js/useUser";
+import useInstructor from "../js/useInstructor";
+import useAdmin from "../js/useAdmin";
+import DashBoardCheck from "../private/DashBoardCheck";
 
 const NavBar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -76,11 +80,7 @@ const NavBar = () => {
               <li>
                 <ActiveRoute to="/classes">Classes</ActiveRoute>
               </li>
-              <li>
-                <ActiveRoute to="/dashboard/selected-classes">
-                  Dashboard
-                </ActiveRoute>
-              </li>
+              <li>{user && <DashBoardCheck></DashBoardCheck>}</li>
             </ul>
           </div>
           <div className="flex gap-2 items-center">
@@ -105,11 +105,7 @@ const NavBar = () => {
             <li>
               <ActiveRoute to="/classes">Classes</ActiveRoute>
             </li>
-            <li>
-              <ActiveRoute to="/dashboard/selected-classes">
-                Dashboard
-              </ActiveRoute>
-            </li>
+            <li>{user && <DashBoardCheck></DashBoardCheck>}</li>
 
             {/* <li tabIndex={0}>
               <details>
