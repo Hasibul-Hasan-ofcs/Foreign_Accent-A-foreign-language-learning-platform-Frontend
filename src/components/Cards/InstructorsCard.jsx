@@ -6,13 +6,15 @@ const InstructorsCard = ({ element }) => {
   return (
     <div className="shadow-md rounded-xl p-7 border">
       <img
-        src={element.instructor_image}
+        src={element.instructor_image || element.img_url}
         className="w-full aspect-img01 rounded-xl"
       />
       <h2 className="text-gray-700 text-2xl font-bold pt-5">
-        {element.instructor_name}
+        {element.instructor_name || element.username}
       </h2>
-      <p className="pt-5 text-sm text-gray-600">{element.instructor_email}</p>
+      <p className="pt-5 text-sm text-gray-600">
+        {element.instructor_email || element.email}
+      </p>
 
       {/* <div className="flex justify-between py-5">
         <div className="flex gap-1 items-center">
