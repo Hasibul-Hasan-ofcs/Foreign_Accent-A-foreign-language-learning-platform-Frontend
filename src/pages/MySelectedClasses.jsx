@@ -65,6 +65,8 @@ const MySelectedClasses = () => {
     });
   };
 
+  console.log(scData);
+
   return (
     <div className="py-6">
       {/* breadcrumb */}
@@ -100,7 +102,13 @@ const MySelectedClasses = () => {
                   </div>
                   <div className="flex flex-col gap-2">
                     <Link
-                      to={`/dashboard/payment/${el._id}/${el.price}/${el.transaction_id}/${el.class_name}/${el.instructor_name}/${el.instructor_email}`}
+                      to={`/dashboard/payment/${el._id}/${el.price}/${
+                        el.transaction_id
+                      }/${el.class_name}/${
+                        el.instructor_name == ""
+                          ? "instructor"
+                          : el.instructor_name
+                      }/${el.instructor_email}`}
                       className="btn btn-success shadow-md w-full md:w-28 text-white"
                     >
                       Payment

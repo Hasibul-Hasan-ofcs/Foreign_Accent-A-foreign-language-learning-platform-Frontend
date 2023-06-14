@@ -5,11 +5,18 @@ import { toast } from "react-toastify";
 import { Bars } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAdmin from "../js/useAdmin";
+import useUser from "../js/useUser";
+import useInstructor from "../js/useInstructor";
 
 const ClassesCard = ({ element }) => {
   const { user } = useContext(AuthContext);
   const token = localStorage.getItem("access-token");
   const [load, setLoad] = useState(false);
+
+  const [isAdmin] = useAdmin();
+  const [isUser] = useUser();
+  const [isInstructor] = useInstructor();
 
   const navigate = useNavigate();
 
@@ -73,7 +80,11 @@ const ClassesCard = ({ element }) => {
   };
 
   return (
-    <div className="shadow-md rounded-xl p-7 border">
+    <div
+      className={`shadow-md rounded-xl p-7 border ${
+        element.available_seats == 0 && "bg-red-400"
+      }`}
+    >
       <img
         src={element.class_image}
         className="w-full aspect-img01 rounded-xl"
@@ -101,6 +112,7 @@ const ClassesCard = ({ element }) => {
 
       <div className="flex justify-between">
         <button
+          disabled={isAdmin || isInstructor || element.available_seats == 0}
           onClick={handleSelectClass}
           className="btn rounded w-full text-white px-5 py-4 bg-yellow-600 hover:bg-yellow-700"
         >

@@ -38,7 +38,7 @@ const Dashboard = () => {
             htmlFor="my-drawer"
             className="btn w-full drawer-button bg-yellow-600 hover:bg-yellow-700 rounded-none h-full"
           >
-            <span>Open Dashboard Navigator</span>
+            <span>Click to Open Dashboard Navigator</span>
             <AiFillCaretRight className="text-2xl text-white"></AiFillCaretRight>
           </label>
         </div>
