@@ -99,7 +99,7 @@ const CheckoutForm = ({
 
       axios
         .patch(
-          `http://localhost:5000/dashboard/user/payment/${classId}/${class_name}/${instructor_email}`,
+          `https://foreignaccent.vercel.app/dashboard/user/payment/${classId}/${class_name}/${instructor_email}`,
           payment,
           {
             headers: {
