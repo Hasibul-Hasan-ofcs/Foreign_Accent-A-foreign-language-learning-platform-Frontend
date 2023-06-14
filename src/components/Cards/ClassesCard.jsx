@@ -95,7 +95,9 @@ const ClassesCard = ({ element }) => {
       <h2 className="text-gray-700 text-2xl font-bold pt-5 line-clamp-2">
         {element.class_name}
       </h2>
-      <p className="pt-2 text-sm text-gray-500">{element.instructor_name}</p>
+      <p className="pt-2 text-sm text-gray-500">
+        {element.instructor_name || "Instructor"}
+      </p>
 
       <div className="flex justify-between py-5">
         <div className="flex gap-1 items-center">

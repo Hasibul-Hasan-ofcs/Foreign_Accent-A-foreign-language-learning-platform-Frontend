@@ -6,6 +6,7 @@ import useAllClasses from "../components/js/useAllClasses";
 
 const Classes = () => {
   const [, refetch, data] = useAllClasses();
+  console.log(data);
   return (
     <div className="w-full">
       <div className="container mx-auto">
