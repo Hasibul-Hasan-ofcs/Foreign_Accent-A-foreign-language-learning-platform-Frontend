@@ -6,6 +6,9 @@ import CounterComponent from "../components/intro/CounterComponent";
 import PopularClasses from "../components/popular/PopularClasses";
 import PopularInstructors from "../components/popular/PopularInstructors";
 import { AuthContext } from "../providers/AuthProvider";
+import TopCategories from "../components/topCategories/TopCategories";
+import InstructorIntro from "../components/intro/InstructorIntro";
+import OfferTimer from "../components/offerTimer/OfferTimer";
 
 const HomePage = () => {
   const { theme, setTheme } = useContext(AuthContext);
@@ -15,11 +18,14 @@ const HomePage = () => {
       className={`w-full ${theme === false ? "bg-slate-800" : "bg-white"}`}
       id="top"
     >
-      <div className="container mx-auto">
+      <div className="">
         <HelmetComponent title="Home"></HelmetComponent>
         <Header></Header>
-        <IntroComponent></IntroComponent>
-        <CounterComponent></CounterComponent>
+        <InstructorIntro></InstructorIntro>
+        {/* <IntroComponent></IntroComponent> */}
+        <TopCategories></TopCategories>
+        <OfferTimer></OfferTimer>
+        {/* <CounterComponent></CounterComponent> */}
         <PopularClasses></PopularClasses>
         <PopularInstructors></PopularInstructors>
       </div>

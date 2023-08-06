@@ -1,0 +1,15 @@
+.border-15px {
+  border-width: 15px;
+}
+
+.perspective-left {
+  transform: perspective(1000px) rotateY(20deg);
+}
+
+.perspective-right {
+  transform: perspective(1000px) rotateY(-30deg);
+}
+
+.back-box-shape {
+  clip-path: polygon(0 100%, 100% 100%, 100% 0);
+}

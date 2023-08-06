@@ -12,6 +12,10 @@ body {
   scroll-behavior: smooth;
 }
 
+.h-500px {
+  height: 500px;
+}
+
 .font-mons {
   font-family: "Montserrat Subrayada", sans-serif;
 }
@@ -30,6 +34,14 @@ body {
 
 .curve_line_bg_light {
   background: url("./assets/svg/curve_line_bg.svg");
+}
+
+.theme-bg {
+  background: #1363df;
+}
+
+.theme-text {
+  color: #1363df;
 }
 
 /* .language_bg {
@@ -75,7 +87,7 @@ body {
   font-size: 20px !important;
   font-weight: bolder;
   line-height: 40px;
-  color: #ca8a04;
+  color: #1363df;
 }
 
 .swiper-button-prev {
