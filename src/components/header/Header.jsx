@@ -40,8 +40,8 @@ const Header = () => {
       </video> */}
 
       <div className="container mx-auto min-h-[500px] flex flex-col justify-center">
-        <div className="w-full lg:w-1/2 h-full flex flex-col justify-center items-center lg:items-start gap-10 ">
-          <h1 className="text-5xl font-semibold text-white text-center lg:text-start">
+        <div className="w-full h-full flex flex-col justify-center items-center gap-10 ">
+          <h1 className="text-5xl font-semibold text-white text-center">
             Learn{" "}
             <span className="">
               <Typewriter
@@ -117,7 +117,7 @@ const Header = () => {
             <span className="theme-text">Language</span> Learning!
           </h1> */}
         </div>
-        <div className="w-full lg:w-1/2 h-full relative"></div>
+        {/* <div className="w-full lg:w-1/2 h-full relative"></div> */}
       </div>
     </div>
   );
