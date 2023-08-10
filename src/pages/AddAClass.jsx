@@ -82,7 +82,7 @@ const AddAClass = () => {
   return (
     <div className="w-full">
       <div className="container mx-auto flex flex-col items-center justify-center py-24">
-        <h1 className="text-yellow-600 text-xl text-center py-10">
+        <h1 className="theme-text text-xl text-center py-10">
           Please be patient while uploading the data as ImgBB is taking longer
           time than expected sometimes.
         </h1>
@@ -176,7 +176,7 @@ const AddAClass = () => {
 
           <button
             type="submit"
-            className="btn bg-yellow-600 text-white hover:bg-yellow-700"
+            className="btn theme-bg text-white hover:bg-green-500"
           >
             {loading ? (
               <Bars

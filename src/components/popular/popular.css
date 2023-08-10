@@ -1,0 +1,35 @@
+.p_box_main {
+  position: relative;
+  top: 0;
+  transition: all 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.p_box_main:hover {
+  top: -10px;
+}
+
+.p_box_main .p_ins_img {
+  filter: grayscale(1);
+  transition: all 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.p_box_main:hover .p_ins_img {
+  filter: grayscale(0);
+}
+
+.splash_bg {
+  position: relative;
+}
+
+.splash_bg::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1/1;
+  width: 300px;
+  background: #32b768;
+  border-radius: 100%;
+  z-index: 1;
+}

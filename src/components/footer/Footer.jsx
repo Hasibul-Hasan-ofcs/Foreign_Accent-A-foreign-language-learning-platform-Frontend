@@ -9,36 +9,13 @@ import {
   FaInstagram,
   FaDribbble,
 } from "react-icons/fa";
+import NewsLetter from "../newsletter/NewsLetter";
 
 const Footer = () => {
-  const subInputref = useRef(null);
-
-  const subscribeHandler = (e) => {
-    e.preventDefault();
-    const form = e.target;
-
-    toast.success(
-      `Dear ${subInputref.current.value}, Thank you for subscribing to our newsletter`,
-      {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      }
-    );
-
-    form.reset();
-  };
-
   return (
-    <div className="curve_line_bg_light">
-      {/* <div className="bg-base-200"> */}
+    <div className="curve_line_bg_light  relative">
       <div className="bg-transparent">
-        <footer className="footer container mx-auto p-10 py-28 text-base-content">
+        <footer className="footer container mx-auto px-10 pt-28 text-base-content">
           <div>
             <span className="footer-title text-slate-100">Services</span>
             <a className="link link-hover text-slate-300">Language Courses</a>
@@ -52,6 +29,15 @@ const Footer = () => {
             <a className="link link-hover text-slate-300">Our Team</a>
             <a className="link link-hover text-slate-300">Testimonials</a>
             <a className="link link-hover text-slate-300">FAQs</a>
+          </div>
+          <div>
+            <span className="footer-title text-slate-100">Classes</span>
+            <a className="link link-hover text-slate-300">English Speaking</a>
+            <a className="link link-hover text-slate-300">Spanish Speaking</a>
+            <a className="link link-hover text-slate-300">Arabic Speaking</a>
+            <a className="link link-hover text-slate-300">Bengali Speaking</a>
+            <a className="link link-hover text-slate-300">Japanese Speaking</a>
+            <a className="link link-hover text-slate-300">Hindi Speaking</a>
           </div>
           <div>
             <span className="footer-title text-slate-100">
@@ -68,37 +54,12 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <div>
-            <span className="footer-title text-slate-100">Newsletter</span>
-            <div className="form-control w-80">
-              <label className="label">
-                <span className="label-text">Enter your email address</span>
-              </label>
-              <div className="relative">
-                <form onSubmit={subscribeHandler}>
-                  <input
-                    type="email"
-                    placeholder="username@site.com"
-                    className="input input-bordered w-full pr-16"
-                    ref={subInputref}
-                    required
-                  />
-                  <button
-                    className="btn bg-yellow-600 border-yellow-600 absolute top-0 right-0 rounded-l-none hover:bg-yellow-700 text-white"
-                    type="submit"
-                  >
-                    Subscribe
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
         </footer>
       </div>
 
       {/* <div className="bg-neutral"> */}
       <div className="bg-transparent">
-        <footer className="footer container mx-auto items-center px-10 pt-10 pb-16  text-neutral-content">
+        <footer className="footer container mx-auto items-center justify-between px-10 pt-10 pb-16  text-neutral-content">
           {/* <footer className="footer items-center p-4 bg-base-200 text-neutral-content"> */}
           <div className="items-center grid-flow-col">
             <img src={LOGOMAIN} className="h-11" />

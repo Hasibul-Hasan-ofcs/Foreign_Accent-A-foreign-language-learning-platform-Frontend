@@ -1,50 +1,26 @@
 import React, { useContext } from "react";
 import { FaUsers } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProvider";
+import "./popular.css";
+import BoxScale from "../framer/BoxScale";
 
 const CardPI = ({ element }) => {
   const { theme, setTheme } = useContext(AuthContext);
-  // console.log(element);
+  // console.log(mainData);
   return (
-    <div
-      className={`shadow-md rounded-xl p-7 border ${
-        theme === false ? "border-0" : "border"
-      } ${theme === false ? "bg-slate-700" : "bg-white"}`}
-    >
-      <img
-        src={element.instructor_image}
-        className="w-full aspect-img01 rounded-xl"
-      />
-      <h2
-        className={`text-gray-700 text-2xl font-bold pt-5 ${
-          theme === false ? "text-slate-300" : "text-slate-500"
-        }`}
-      >
-        {element.instructor_name}
-      </h2>
-
-      <div className="flex justify-between py-5">
-        <div className="flex gap-1 items-center">
-          <div className="h-10 w-10 rounded-full bg-yellow-600 flex justify-center items-center">
-            <FaUsers className="text-white"></FaUsers>
-          </div>
-          <span
-            className={`text-sm ${
-              theme === false ? "text-slate-400" : "text-slate-500"
-            }`}
-          >
-            {element.students} Students
-          </span>
+    <div className={``}>
+      <BoxScale delayProp={0.1}>
+        <div className="splash_bg h-[380px]">
+          <img
+            src={element?.instructor_image || element?.img_url}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p_ins_img h-[380px] w-[250px] aspect-img01 rounded-t-xl z-10"
+          />
         </div>
-      </div>
+      </BoxScale>
 
-      {/*<div className="divider"></div>
-
-       <div className="flex justify-between">
-        <button className="btn rounded text-white px-5 py-4 bg-yellow-600 hover:bg-yellow-700 w-full">
-          View Instructor
-        </button>
-      </div> */}
+      <h2 className={`text-2xl font-bold main_name text-gray-900 text-center`}>
+        {element?.instructor_name || element?.username}
+      </h2>
     </div>
   );
 };

@@ -116,12 +116,12 @@ const Login = () => {
   }, [userCredentialState]);*/
 
   return (
-    <div className="w-full " id="loginTop">
+    <div className="w-full bg-white" id="loginTop">
       <HelmetComponent title="Login"></HelmetComponent>
       <div className="container mx-auto flex flex-col-reverse lg:flex-row py-28 justify-center">
         <div className="w-full lg:w-1/2 px-2 md:px-10 flex items-center justify-center">
           <div className="p-3 md:py-10 md:px-8 shadow-md rounded-2xl w-full min-h-full border">
-            <h2 className="normal-case py-10 text-3xl font-extrabold cursor-pointer font-mons">
+            <h2 className="text-gray-900 normal-case py-10 text-3xl font-extrabold cursor-pointer font-mons">
               LOG IN
             </h2>
             <form
@@ -134,7 +134,7 @@ const Login = () => {
                 <input
                   type="email"
                   placeholder="user@example.com"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full shadow bg-white text-gray-900"
                   {...register("email", { required: true })}
                 />
 
@@ -150,7 +150,7 @@ const Login = () => {
                   <input
                     type={passwordVisible ? "text" : "password"}
                     placeholder="Password"
-                    className="input input-bordered w-full"
+                    className="input input-bordered w-full shadow bg-white text-gray-900"
                     {...register("password", { required: true })}
                   />
                   <button
@@ -174,7 +174,7 @@ const Login = () => {
 
               <button
                 type="submit"
-                className="btn bg-yellow-600 text-white hover:bg-yellow-700"
+                className="btn theme-bg text-white border-0 hover:bg-green-500"
               >
                 {loading ? (
                   <Bars
@@ -196,7 +196,7 @@ const Login = () => {
               <p className="text-center">
                 Don't have an account? &nbsp;
                 <Link to="/signup" className="font-bold">
-                  Sign Up
+                  <span className="theme-text hover:underline">Sign Up</span>
                 </Link>
               </p>
 
@@ -205,7 +205,7 @@ const Login = () => {
             <div className="flex flex-col items-center justify-center">
               <button
                 type="submit"
-                className="google_login_button btn rounded-full p-1 shadow-md flex justify-center items-center border w-fit"
+                className="google_login_button btn rounded-full p-1 shadow-md flex justify-center items-center border border-gray-300 w-fit bg-white"
                 onClick={handleGoogleLogin}
               >
                 <img src={GOOGLEIMG} className="h-10" /> &nbsp; Google Sign In

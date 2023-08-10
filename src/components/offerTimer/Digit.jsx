@@ -9,12 +9,12 @@ const Digit = ({ digit, timeUnit }) => (
       <FlipNumbers
         play
         color="#fff"
-        width={60}
-        height={70}
+        width={50}
+        height={60}
         numbers={digit <= 9 ? `0${digit}` : `${digit}`}
       />
     </div>
-    {timeUnit.toUpperCase()}
+    <span className="text-white">{timeUnit.toUpperCase()}</span>
   </div>
 );
 

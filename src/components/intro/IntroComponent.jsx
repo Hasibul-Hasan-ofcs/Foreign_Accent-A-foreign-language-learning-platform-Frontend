@@ -22,7 +22,7 @@ const IntroComponent = () => {
           {/* <div className=""> */}
           <div className="flex flex-col">
             <motion.div className="item" drag dragConstraints={constraintsRef1}>
-              <FaPlay className="h-14 w-14 mr-2 mb-5 cursor-grab bg-yellow-600 text-white p-2 rounded-lg border shadow-md"></FaPlay>
+              <FaPlay className="h-14 w-14 mr-2 mb-5 cursor-grab theme-bg text-white p-2 rounded-lg border shadow-md"></FaPlay>
             </motion.div>
 
             <h2
@@ -50,7 +50,7 @@ const IntroComponent = () => {
         <motion.div className="container" ref={constraintsRef2}>
           <div className="flex flex-col">
             <motion.div className="item" drag dragConstraints={constraintsRef2}>
-              <FaHeadset className="h-14 w-14 mr-2 mb-5 cursor-grab bg-yellow-600 text-white p-2 rounded-lg border shadow-md"></FaHeadset>
+              <FaHeadset className="h-14 w-14 mr-2 mb-5 cursor-grab theme-bg text-white p-2 rounded-lg border shadow-md"></FaHeadset>
             </motion.div>
             <h2
               className={`text-2xl font-semibold ${
@@ -77,7 +77,7 @@ const IntroComponent = () => {
         <motion.div className="container" ref={constraintsRef3}>
           <div className="flex flex-col">
             <motion.div className="item" drag dragConstraints={constraintsRef3}>
-              <MdMoreTime className="h-14 w-14 mr-2 mb-5 cursor-grab bg-yellow-600 text-white p-2 rounded-lg border shadow-md"></MdMoreTime>
+              <MdMoreTime className="h-14 w-14 mr-2 mb-5 cursor-grab theme-bg text-white p-2 rounded-lg border shadow-md"></MdMoreTime>
             </motion.div>
             <h2
               className={`text-2xl font-semibold ${

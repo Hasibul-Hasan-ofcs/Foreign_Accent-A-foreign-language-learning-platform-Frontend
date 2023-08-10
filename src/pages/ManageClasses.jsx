@@ -104,9 +104,7 @@ const ManageClasses = () => {
                 <p className="pt-1 pb-3 text-sm text-gray-600">
                   {el.available_seats} Seats
                 </p>
-                <p className="pt-1 pb-3 text-yellow-600 text-2xl">
-                  ${el.price}
-                </p>
+                <p className="pt-1 pb-3 theme-text text-2xl">${el.price}</p>
                 <p className="pt-1 pb-3 text-sm text-gray-600 font-bold">
                   {el.status}
                 </p>

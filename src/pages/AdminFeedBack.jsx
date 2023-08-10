@@ -56,7 +56,7 @@ const AdminFeedBack = () => {
             name="textfield"
             className="border text-xl w-64 h-20"
           />
-          <button className="btn bg-yellow-600">Send feedback</button>
+          <button className="btn theme-bg">Send feedback</button>
         </form>
       </div>
     </div>

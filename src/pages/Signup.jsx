@@ -164,12 +164,12 @@ const Signup = () => {
   }, [userCredentialState]);*/
 
   return (
-    <div className="w-full ">
+    <div className="w-full bg-white">
       <HelmetComponent title="Signup"></HelmetComponent>
       <div className="container mx-auto flex flex-col-reverse lg:flex-row py-28 justify-center">
         <div className="w-full lg:w-1/2 px-2 md:px-10 flex items-center justify-center">
           <div className="p-3 md:py-10 md:px-8 shadow-md rounded-2xl w-full min-h-full border">
-            <h2 className="normal-case py-10 text-3xl font-extrabold cursor-pointer font-mons">
+            <h2 className="text-gray-900 normal-case py-10 text-3xl font-extrabold cursor-pointer font-mons">
               Sign Up
             </h2>
             <form
@@ -180,7 +180,7 @@ const Signup = () => {
                 <input
                   type="text"
                   placeholder="Username"
-                  className="input input-bordered w-full"
+                  className="input input-bordered shadow text-gray-900 w-full bg-white"
                   {...register("username", { required: true })}
                 />
 
@@ -193,7 +193,7 @@ const Signup = () => {
                 <input
                   type="email"
                   placeholder="user@example.com"
-                  className="input input-bordered w-full"
+                  className="input input-bordered shadow text-gray-900 w-full bg-white"
                   {...register("email", { required: true })}
                 />
 
@@ -206,7 +206,7 @@ const Signup = () => {
                 <input
                   type="password"
                   placeholder="password"
-                  className="input input-bordered w-full"
+                  className="input input-bordered shadow text-gray-900 w-full bg-white"
                   {...register("password", {
                     required: true,
                     minLength: 6,
@@ -239,7 +239,7 @@ const Signup = () => {
                 <input
                   type="password"
                   placeholder="confirm-password"
-                  className="input input-bordered w-full"
+                  className="input input-bordered shadow text-gray-900 w-full bg-white"
                   {...register("confirmPassword", {
                     required: true,
                     minLength: 6,
@@ -271,20 +271,20 @@ const Signup = () => {
               <input
                 type="text"
                 placeholder="phone no."
-                className="input input-bordered w-full"
+                className="input input-bordered shadow text-gray-900 w-full bg-white"
                 {...register("phone")}
               />
 
               <input
                 type="text"
                 placeholder="address"
-                className="input input-bordered w-full"
+                className="input input-bordered shadow text-gray-900 w-full bg-white"
                 {...register("address")}
               />
 
               <select
                 {...register("gender")}
-                className="select select-bordered w-full"
+                className="select select-bordered shadow w-full bg-white"
                 defaultValue=""
               >
                 <option value="" disabled>
@@ -298,7 +298,7 @@ const Signup = () => {
               <div>
                 <input
                   type="file"
-                  className="file-input file-input-bordered w-full"
+                  className="file-input file-input-bordered shadow w-full bg-white"
                   {...register("imgFile", { required: true })}
                 />
 
@@ -309,7 +309,7 @@ const Signup = () => {
 
               <button
                 type="submit"
-                className="btn bg-yellow-600 text-white hover:bg-yellow-700"
+                className="btn theme-bg text-white border-0 hover:bg-green-500"
               >
                 {loading ? (
                   <Bars
@@ -331,7 +331,7 @@ const Signup = () => {
               <p className="text-center">
                 Don't have an account? &nbsp;
                 <Link to="/login" className="font-bold">
-                  Log in
+                  <span className="theme-text hover:underline">Log in</span>
                 </Link>
               </p>
 
@@ -340,7 +340,7 @@ const Signup = () => {
             <div className="flex flex-col items-center justify-center">
               <button
                 type="submit"
-                className="google_login_button btn rounded-full p-1 shadow-md flex justify-center items-center border w-fit"
+                className="bg-white google_login_button btn rounded-full p-1 shadow-md flex justify-center items-center border border-gray-300 w-fit"
                 onClick={handleGoogleLogin}
               >
                 <img src={GOOGLEIMG} className="h-10" /> &nbsp; Google Sign In

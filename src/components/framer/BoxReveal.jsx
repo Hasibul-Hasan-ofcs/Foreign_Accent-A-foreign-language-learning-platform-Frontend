@@ -15,10 +15,10 @@ const BoxReveal = ({ children, delayProp }) => {
   }, [isInView]);
 
   return (
-    <div className="relative overflow-hidden" ref={ref}>
+    <div className="relative" ref={ref}>
       <motion.div
         variants={{
-          hidden: { opacity: 0, y: "120%" },
+          hidden: { opacity: 0, y: "60%" },
           visible: { opacity: 1, y: "0%" },
         }}
         initial="hidden"

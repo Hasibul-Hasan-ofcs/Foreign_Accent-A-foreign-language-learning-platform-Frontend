@@ -37,11 +37,24 @@ body {
 }
 
 .theme-bg {
-  background: #1363df;
+  /* background: #1363df; */
+  background: #32b768;
+}
+
+.theme-border {
+  border: 2px solid #32b768;
 }
 
 .theme-text {
-  color: #1363df;
+  color: #32b768;
+}
+
+.theme-button-left {
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+}
+
+.theme-button-right {
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
 }
 
 /* .language_bg {
@@ -87,7 +100,7 @@ body {
   font-size: 20px !important;
   font-weight: bolder;
   line-height: 40px;
-  color: #1363df;
+  color: #32b768;
 }
 
 .swiper-button-prev {

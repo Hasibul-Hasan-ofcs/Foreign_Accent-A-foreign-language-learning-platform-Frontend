@@ -24,3 +24,7 @@
 .swiper-card {
   background: #eef2f6;
 }
+
+.swiper-pagination-bullet-active {
+  background-color: #32b768;
+}

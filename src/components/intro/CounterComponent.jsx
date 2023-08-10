@@ -6,7 +6,7 @@ const CounterComponent = () => {
     <div className="w-full pb-20">
       <div className="container flex flex-col md:flex-row justify-evenly">
         <div className="flex flex-col items-center  gap-4 px-5 w-full lg:w-1/3">
-          <h1 className="text-6xl text-yellow-600 font-extrabold ">
+          <h1 className="text-6xl theme-text font-extrabold ">
             <CountUp
               start={0}
               end={10}
@@ -22,7 +22,7 @@ const CounterComponent = () => {
         <div className="divider md:divider-horizontal"></div>
 
         <div className="flex flex-col items-center gap-4 px-5 w-full lg:w-1/3">
-          <h1 className="text-6xl text-yellow-600 font-extrabold ">
+          <h1 className="text-6xl theme-text font-extrabold ">
             <CountUp
               start={0}
               end={5}
@@ -38,7 +38,7 @@ const CounterComponent = () => {
         <div className="divider md:divider-horizontal"></div>
 
         <div className="flex flex-col items-center gap-4 px-5 w-full lg:w-1/3">
-          <h1 className="text-6xl text-yellow-600 font-extrabold ">
+          <h1 className="text-6xl theme-text font-extrabold ">
             <CountUp
               start={0}
               end={10}

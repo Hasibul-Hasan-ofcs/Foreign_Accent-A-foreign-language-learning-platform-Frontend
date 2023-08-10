@@ -15,7 +15,7 @@ const InstructorRoute = ({ children }) => {
         <Bars
           height="80"
           width="80"
-          color="#ca8a04"
+          color="#32b768"
           ariaLabel="bars-loading"
           wrapperStyle={{}}
           wrapperClass=""

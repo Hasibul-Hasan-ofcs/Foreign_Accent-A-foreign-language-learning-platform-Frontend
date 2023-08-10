@@ -9,6 +9,10 @@ import { AuthContext } from "../providers/AuthProvider";
 import TopCategories from "../components/topCategories/TopCategories";
 import InstructorIntro from "../components/intro/InstructorIntro";
 import OfferTimer from "../components/offerTimer/OfferTimer";
+import WhyThisCourses from "../components/whyThisCourses/WhyThisCourses";
+import Sponsors from "../components/sponsors/Sponsors";
+import BookSuggestion from "../components/bookSuggestion/BookSuggestion";
+import NewsLetter from "../components/newsletter/NewsLetter";
 
 const HomePage = () => {
   const { theme, setTheme } = useContext(AuthContext);
@@ -21,13 +25,17 @@ const HomePage = () => {
       <div className="">
         <HelmetComponent title="Home"></HelmetComponent>
         <Header></Header>
+        <Sponsors></Sponsors>
         <InstructorIntro></InstructorIntro>
-        {/* <IntroComponent></IntroComponent> */}
         <TopCategories></TopCategories>
+        {/* <IntroComponent></IntroComponent> */}
+        <PopularClasses></PopularClasses>
         <OfferTimer></OfferTimer>
         {/* <CounterComponent></CounterComponent> */}
-        <PopularClasses></PopularClasses>
         <PopularInstructors></PopularInstructors>
+        <WhyThisCourses></WhyThisCourses>
+        <BookSuggestion></BookSuggestion>
+        <NewsLetter></NewsLetter>
       </div>
     </div>
   );

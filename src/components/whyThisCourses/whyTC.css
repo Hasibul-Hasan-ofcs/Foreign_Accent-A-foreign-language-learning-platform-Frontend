@@ -1,0 +1,40 @@
+.clip_wt_card {
+  clip-path: polygon(70% 0, 100% 50%, 70% 100%, 0 100%, 0 0);
+}
+
+.coff_box {
+  transition: all 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.coff_box:hover {
+  transform: translateY(-7px);
+}
+
+.coff_box .coff_img {
+  transition: all 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.coff_box:hover .coff_img {
+  transform: scale(1.1) rotate(-20deg);
+}
+
+.coff_box::before {
+  content: "";
+  height: 50rem;
+  width: 1px;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px 20px #fff;
+  transition: all 1s linear 0.2s;
+  transform: rotate(-45deg) translate(-50%, -50%);
+  filter: blur(4rem);
+  position: absolute;
+  top: 50%;
+  left: 0%;
+}
+
+.coff_box:hover::before {
+  left: 400%;
+}

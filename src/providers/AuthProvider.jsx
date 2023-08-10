@@ -23,7 +23,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState(true);
 
-  console.log(user);
+  // console.log(user);
 
   const createUser = (email, password) => {
     setLoading(true);

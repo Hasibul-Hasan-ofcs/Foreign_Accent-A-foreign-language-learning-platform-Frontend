@@ -7,5 +7,9 @@
 }
 
 .h-200per {
-  height: 300%;
+  height: 200%;
+}
+
+.polygon_offerTimer {
+  clip-path: 40% 0%, 60% 0%, 100% 100%, 0% 100%;
 }

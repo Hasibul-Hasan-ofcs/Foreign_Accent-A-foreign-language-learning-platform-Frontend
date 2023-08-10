@@ -20,48 +20,48 @@ const langArr = [
   {
     flag: English,
     lang: `English`,
-    course: "12+",
+    course: "12",
   },
   {
     flag: Arabic,
     lang: `Arabic`,
-    course: "12+",
+    course: "12",
   },
   {
     flag: Bengali,
     lang: `Bengali`,
-    course: "12+",
+    course: "12",
   },
   {
     flag: Chinese,
     lang: `Chinese`,
-    course: "12+",
+    course: "12",
   },
   {
     flag: Japanese,
     lang: `Japanese`,
-    course: "12+",
+    course: "12",
   },
   {
     flag: Hindi,
     lang: `Hindi`,
-    course: "12+",
+    course: "12",
   },
   {
     flag: Urdu,
     lang: `Urdu`,
-    course: "12+",
+    course: "12",
   },
   {
     flag: Russian,
     lang: `Russian`,
-    course: "12+",
+    course: "12",
   },
 ];
 
 const TopCategories = () => {
   return (
-    <div className="container mx-auto py-20 lg:px-20">
+    <div className="container mx-auto py-10 lg:px-20 h-fit">
       <CommonTitle
         mainTitle="Top Categories"
         subTitle="Most popular and searched categories"

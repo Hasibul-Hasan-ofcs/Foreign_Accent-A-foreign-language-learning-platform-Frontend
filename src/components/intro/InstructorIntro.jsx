@@ -8,11 +8,15 @@ import Video from "../../assets/png/video.png";
 import "./intro.css";
 import FlipNumberInt from "../flipNumbers/FlipNumberInt";
 import CountUp from "react-countup";
+import { Link } from "react-router-dom";
 
 const InstructorIntro = () => {
   return (
-    <div className="container mx-auto flex flex-col-reverse lg:flex-row py-20">
-      <div className="w-full lg:w-1/2 px-2 lg:px-8 py-7 lg:py-0 flex flex-col items-center lg:items-start">
+    <div
+      className="container mx-auto flex flex-col-reverse lg:flex-row py-20"
+      id="insIntro"
+    >
+      <div className="w-full lg:w-1/2 pe-2 lg:pe-8 py-7 lg:py-0 flex flex-col items-center lg:items-start">
         <h1 className="font-semibold text-4xl text-gray-900  text-center lg:text-start">
           Find the best <span className="theme-text">language</span>
           <br /> courses from best <br />
@@ -38,14 +42,14 @@ const InstructorIntro = () => {
               scrollSpyOnce={true}
             >
               {({ countUpRef, start }) => (
-                <h2 className="text-4xl font-bold text-gray-900">
+                <h2 className="text-4xl font-medium text-gray-900">
                   <span ref={countUpRef}></span>+
                 </h2>
               )}
             </CountUp>
 
-            <h3 className="text-lg font-semibold text-gray-900 text-center">
-              International <br /> Instructors
+            <h3 className="text-lg font-medium text-gray-900 text-center">
+              Professional <br /> Instructors
             </h3>
           </div>
           <div className="flex flex-col gap-3 w-1/2 items-center">
@@ -57,13 +61,13 @@ const InstructorIntro = () => {
               scrollSpyOnce={true}
             >
               {({ countUpRef, start }) => (
-                <h2 className="text-4xl font-bold text-gray-900">
+                <h2 className="text-4xl font-medium text-gray-900">
                   <span ref={countUpRef}></span>+
                 </h2>
               )}
             </CountUp>
 
-            <h3 className="text-lg font-semibold text-gray-900 text-center">
+            <h3 className="text-lg font-medium text-gray-900 text-center">
               Language <br /> Courses
             </h3>
           </div>
@@ -76,27 +80,29 @@ const InstructorIntro = () => {
               scrollSpyOnce={true}
             >
               {({ countUpRef, start }) => (
-                <h2 className="text-4xl font-bold text-gray-900">
+                <h2 className="text-4xl font-medium text-gray-900">
                   <span ref={countUpRef}></span>+
                 </h2>
               )}
             </CountUp>
 
-            <h3 className="text-lg font-semibold text-gray-900 text-center">
+            <h3 className="text-lg font-medium text-gray-900 text-center">
               Latest <br /> Videos
             </h3>
           </div>
         </div>
 
-        <button className="theme-bg text-white font-bold rounded-lg mt-7 p-5 hover:opacity-80">
-          Start Exploring &rarr;
-        </button>
+        <Link to="/classes">
+          <button className="theme-bg text-white font-bold rounded-lg mt-7 p-5 hover:opacity-80">
+            Start Exploring &rarr;
+          </button>
+        </Link>
       </div>
       <div className="w-full lg:w-1/2 relative min-h-screen">
         <div className="back-box-shape absolute top-0 right-0 theme-bg h-full w-full"></div>
         <div className="exp-box border absolute top-32 right-8 p-6 shadow-2xl rounded-2xl bg-white w-60 h-48 flex justify-center items-center">
           <h1 className="text-2xl font-bold text-gray-800 text-center">
-            International Instructors
+            Expert Language Instructors
           </h1>
         </div>
         <div className="inline-block rounded-3xl p-4 shadow-2xl absolute top-0 left-0 z-0 lg:z-10 perspective-left">

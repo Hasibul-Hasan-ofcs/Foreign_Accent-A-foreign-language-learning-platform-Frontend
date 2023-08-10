@@ -5,7 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const MySelectedClasses = () => {
   const { user, loading } = useContext(AuthContext);
-  const [scData, setScData] = useState(null);
+  const [scData, setScData] = useState([]);
   const token = localStorage.getItem("access-token");
 
   useEffect(() => {
@@ -80,12 +80,12 @@ const MySelectedClasses = () => {
         </ul>
       </div>
 
-      {scData &&
+      {scData && scData.length > 0 ? (
         scData.map((el, indx) => {
           return (
             <div key={el._id}>
               {el.transaction_id ? (
-                <></>
+                <p className="text-center">Nothing to show</p>
               ) : (
                 <div className="border rounded-md shadow-md p-4 my-5 flex justify-between items-center flex-col md:flex-row">
                   <img
@@ -109,14 +109,14 @@ const MySelectedClasses = () => {
                           ? "instructor"
                           : el.instructor_name
                       }/${el.instructor_email}`}
-                      className="btn btn-success shadow-md w-full md:w-28 text-white"
+                      className="btn theme-bg border-0 shadow-md w-full md:w-28 text-white"
                     >
                       Payment
                     </Link>
 
                     <button
                       onClick={() => handleDeleteItem(el._id)}
-                      className="btn btn-error shadow-md w-full md:w-28 text-white"
+                      className="btn bg-gray-800 border-0 hover:bg-gray-950 shadow-md w-full md:w-28 text-white"
                     >
                       Delete
                     </button>
@@ -125,7 +125,10 @@ const MySelectedClasses = () => {
               )}
             </div>
           );
-        })}
+        })
+      ) : (
+        <p className="text-center">Nothing to show</p>
+      )}
     </div>
   );
 };

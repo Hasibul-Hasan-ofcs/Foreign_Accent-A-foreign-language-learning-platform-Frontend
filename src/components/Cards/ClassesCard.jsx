@@ -81,59 +81,62 @@ const ClassesCard = ({ element }) => {
 
   return (
     <div
-      className={`shadow-md rounded-xl p-7 border ${
+      className={`shadow-md rounded-xl border ${
         element.available_seats == 0 && "bg-red-400"
       }`}
     >
       <img
         src={element.class_image}
-        className="w-full aspect-img01 rounded-xl"
+        className="w-full aspect-img01 rounded-t-xl"
       />
-      <h2 className="text-yellow-600 text-4xl font-extrabold pt-5">
-        ${element.price}
-      </h2>
-      <h2 className="text-gray-700 text-2xl font-bold pt-5 line-clamp-2">
-        {element.class_name}
-      </h2>
-      <p className="pt-2 text-sm text-gray-500">
-        {element.instructor_name || "Instructor"}
-      </p>
 
-      <div className="flex justify-between py-5">
-        <div className="flex gap-1 items-center">
-          <div className="h-10 w-10 rounded-full bg-yellow-600 flex justify-center items-center">
-            <FaChair className="text-white"></FaChair>
-          </div>
-          <span className="text-sm text-gray-500">
-            {element.available_seats} Seats available!
-          </span>
-        </div>
-      </div>
+      <div className="p-4">
+        <h2 className="theme-text text-4xl font-extrabold pt-5">
+          ${element.price}
+        </h2>
+        <h2 className="text-gray-700 text-2xl font-bold pt-5 line-clamp-2">
+          {element.class_name}
+        </h2>
+        <p className="pt-2 text-sm text-gray-500">
+          {element.instructor_name || "Instructor"}
+        </p>
 
-      <div className="divider"></div>
-
-      <div className="flex justify-between">
-        <button
-          disabled={isAdmin || isInstructor || element.available_seats == 0}
-          onClick={handleSelectClass}
-          className="btn rounded w-full text-white px-5 py-4 bg-yellow-600 hover:bg-yellow-700"
-        >
-          {load ? (
-            <span className="flex justify-center">
-              <Bars
-                height="20"
-                width="20"
-                color="#fff"
-                ariaLabel="bars-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-              />
+        <div className="flex justify-between pt-2">
+          <div className="flex gap-1 items-center">
+            <div className="h-10 w-10 rounded-full theme-bg flex justify-center items-center">
+              <FaChair className="text-white"></FaChair>
+            </div>
+            <span className="text-sm text-gray-500">
+              {element.available_seats} Seats available!
             </span>
-          ) : (
-            <span>Select Class</span>
-          )}
-        </button>
+          </div>
+        </div>
+
+        <div className="divider"></div>
+
+        <div className="flex justify-between">
+          <button
+            disabled={isAdmin || isInstructor || element.available_seats == 0}
+            onClick={handleSelectClass}
+            className="btn rounded w-full text-white px-5 theme-bg hover:bg-green-500 border-0"
+          >
+            {load ? (
+              <span className="flex justify-center">
+                <Bars
+                  height="20"
+                  width="20"
+                  color="#fff"
+                  ariaLabel="bars-loading"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                />
+              </span>
+            ) : (
+              <span>Select Class</span>
+            )}
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -154,7 +154,7 @@ const CheckoutForm = ({
           }}
         />
         <button
-          className="btn bg-yellow-600 hover:bg-yellow-700 text-white btn-sm mt-4"
+          className="btn theme-bg hover:bg-green-500 text-white btn-sm mt-4"
           type="submit"
           disabled={
             !stripe ||

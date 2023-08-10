@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             path: "/dashboard/selected-classes",
             element: (
               <UserRoute>
-                <MySelectedClasses></MySelectedClasses>,
+                <MySelectedClasses></MySelectedClasses>
               </UserRoute>
             ),
           },
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
             path: "/dashboard/enrolled-classes",
             element: (
               <UserRoute>
-                <MyEnrolledClasses></MyEnrolledClasses>,
+                <MyEnrolledClasses></MyEnrolledClasses>
               </UserRoute>
             ),
           },
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
             path: "/dashboard/payment/:id/:price/:transaction_id/:class_name/:instructor_name/:instructor_email",
             element: (
               <UserRoute>
-                <Payment></Payment>,
+                <Payment></Payment>
               </UserRoute>
             ),
           },
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
             path: "/dashboard/payment-history",
             element: (
               <UserRoute>
-                <PaymentHistory></PaymentHistory>,
+                <PaymentHistory></PaymentHistory>
               </UserRoute>
             ),
           },
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
             path: "/dashboard/add-class",
             element: (
               <InstructorRoute>
-                <AddAClass></AddAClass>,
+                <AddAClass></AddAClass>
               </InstructorRoute>
             ),
           },
@@ -99,7 +99,7 @@ const router = createBrowserRouter([
             path: "/dashboard/my-classes",
             element: (
               <InstructorRoute>
-                <MyClasses></MyClasses>,
+                <MyClasses></MyClasses>
               </InstructorRoute>
             ),
           },
@@ -107,7 +107,7 @@ const router = createBrowserRouter([
             path: "/dashboard/my-classes/feedback/:feedback",
             element: (
               <InstructorRoute>
-                <Feedback></Feedback>,
+                <Feedback></Feedback>
               </InstructorRoute>
             ),
           },
@@ -115,7 +115,7 @@ const router = createBrowserRouter([
             path: "/dashboard/manage-classes",
             element: (
               <AdminRoute>
-                <ManageClasses></ManageClasses>,
+                <ManageClasses></ManageClasses>
               </AdminRoute>
             ),
           },
@@ -123,7 +123,7 @@ const router = createBrowserRouter([
             path: "/dashboard/manage-classes/feedback/:id/:email",
             element: (
               <AdminRoute>
-                <AdminFeedBack></AdminFeedBack>,
+                <AdminFeedBack></AdminFeedBack>
               </AdminRoute>
             ),
           },
@@ -131,7 +131,7 @@ const router = createBrowserRouter([
             path: "/dashboard/manage-users",
             element: (
               <AdminRoute>
-                <ManageUsers></ManageUsers>,
+                <ManageUsers></ManageUsers>
               </AdminRoute>
             ),
           },

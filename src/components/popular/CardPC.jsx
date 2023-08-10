@@ -60,32 +60,38 @@ const CardPC = ({ element }) => {
 
   return (
     <div
-      className={`shadow-md rounded-xl p-7 ${
+      className={`p_box_main shadow-md hover:shadow-xl rounded-xl cursor-pointer ${
         theme === false ? "border-0" : "border"
       } ${theme === false ? "bg-slate-700" : "bg-white"}`}
     >
-      <img
-        src={element?.class_image}
-        className="w-full aspect-img01 rounded-xl"
-      />
-      <h2 className="text-yellow-600 text-4xl font-extrabold pt-5">
-        ${element?.price}
-      </h2>
-      <h2
-        className={`text-gray-700 text-2xl font-bold pt-5 line-clamp-2 ${
-          theme === false ? "text-slate-300" : "text-slate-500"
-        }`}
-      >
-        {element?.class_name}
-      </h2>
-      <p
-        className={`pt-1 text-sm text-gray-600 ${
-          theme === false ? "text-slate-300" : "text-slate-500"
-        }`}
-      >
-        {element?.instructor_name || "Instructor"}
-      </p>
-      {/* <p
+      <div className="relative w-full aspect-img01 rounded-t-xl">
+        <div className="absolute top-4 right-4 z-10 inline-block rounded-2xl theme-bg text-white px-2">
+          {element?.available_seats} seats
+        </div>
+        <img
+          src={element?.class_image}
+          className="p_ins_img w-full aspect-img01 rounded-t-xl"
+        />
+      </div>
+      <div className="p-4">
+        <h2 className="theme-text text-2xl font-medium pt-2">
+          ${element?.price}
+        </h2>
+        <h2
+          className={`main_name text-gray-900 text-xl font-normal pt-2 line-clamp-2 ${
+            theme === false ? "text-slate-300" : "text-slate-500"
+          }`}
+        >
+          {element?.class_name}
+        </h2>
+        <p
+          className={`pt-1 text-sm text-gray-600 ${
+            theme === false ? "text-slate-300" : "text-slate-500"
+          }`}
+        >
+          {element?.instructor_name || "Instructor"}
+        </p>
+        {/* <p
         className={`pt-5 text-sm  line-clamp-3 ${
           theme === false ? "text-slate-400" : "text-slate-500"
         }`}
@@ -93,34 +99,42 @@ const CardPC = ({ element }) => {
         {element?.class_topics?.join(", ")}
       </p> */}
 
-      <div className="flex justify-between pt-5">
-        <div className="flex gap-1 items-center">
-          <div className="h-10 w-10 rounded-full bg-yellow-600 flex justify-center items-center">
-            <FaUsers className="text-white"></FaUsers>
+        <div className="divider"></div>
+        <div className="flex justify-between">
+          <div className="flex gap-1 items-center">
+            <FaUsers className="theme-text"></FaUsers>
+            <span
+              className={`text-sm ${
+                theme === false ? "text-slate-400" : "text-slate-500"
+              }`}
+            >
+              {element?.students} Students
+            </span>
           </div>
-          <span
-            className={`text-sm ${
-              theme === false ? "text-slate-400" : "text-slate-500"
-            }`}
-          >
-            {element?.students} Students
-          </span>
+          <div className="flex gap-1">
+            <FaStar className="text-amber-400"></FaStar>
+            <span
+              className={`text-sm ${
+                theme === false ? "text-slate-400" : "text-slate-500"
+              }`}
+            >
+              {element?.rating ? element?.rating : "4.5"}
+            </span>
+          </div>
         </div>
       </div>
-
-      <div className="divider"></div>
 
       <div className="flex justify-between">
         {/* <div className="flex gap-1 items-center">
           <div className="">
-            <FaStar className="text-2xl text-yellow-600"></FaStar>
+            <FaStar className="text-2xl theme-text"></FaStar>
           </div>
           <span className="text-sm text-gray-500">{element?.rating}</span>
         </div> */}
 
         {/* <button
           onClick={handleSelectClass}
-          className="btn rounded w-full text-white px-5 py-4 bg-yellow-600 hover:bg-yellow-700"
+          className="btn rounded w-full text-white px-5 py-4 theme-bg hover:bg-green-500"
         >
           {load ? (
             <span className="flex justify-center">

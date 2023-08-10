@@ -22,7 +22,7 @@ const PaymentHistory = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setScData(data);
       })
       .catch((err) => console.log(err));
@@ -57,27 +57,41 @@ const PaymentHistory = () => {
         </ul>
       </div>
 
-      {scData &&
+      {scData && scData.length > 0 ? (
         scData.map((el, indx) => {
           return (
-            <div className="border rounded-md shadow-md p-4 my-5 flex justify-between items-center flex-col">
-              <h2 className="text-green-600 text-2xl font-bold pt-3">
-                {el.transactionId}
-              </h2>
-              <p className="pt-1 pb-3 text-sm text-gray-600">{el.email}</p>
-              <p className="pt-1 pb-3 text-yellow-600 text-2xl font-bold">
-                ${el.price}
-              </p>
-              <p className="pt-1 pb-3 text-sm text-gray-600">
-                {dateConverter(el.date)}
-              </p>
-              <p className="pt-1 pb-3 text-sm text-gray-600">{el.class_name}</p>
-              <p className="pt-1 pb-3 text-sm text-gray-600">
-                {el.instructor_name}
-              </p>
+            <div key={el._id}>
+              {el.transaction_id ? (
+                <p className="text-center">Nothing to show</p>
+              ) : (
+                <div
+                  className="border rounded-md shadow-md p-4 my-5 flex justify-between items-center flex-col"
+                  key={indx}
+                >
+                  <h2 className="text-green-600 text-xl font-bold pt-3 break-words">
+                    {el.transactionId}
+                  </h2>
+                  <p className="pt-1 pb-3 text-sm text-gray-600">{el.email}</p>
+                  <p className="pt-1 pb-3 theme-text text-2xl font-bold">
+                    ${el.price}
+                  </p>
+                  <p className="pt-1 pb-3 text-sm text-gray-600">
+                    {dateConverter(el.date)}
+                  </p>
+                  <p className="pt-1 pb-3 text-sm text-gray-600">
+                    {el.class_name}
+                  </p>
+                  <p className="pt-1 pb-3 text-sm text-gray-600">
+                    {el.instructor_name}
+                  </p>
+                </div>
+              )}
             </div>
           );
-        })}
+        })
+      ) : (
+        <p className="text-center">Nothing to show</p>
+      )}
     </div>
   );
 };

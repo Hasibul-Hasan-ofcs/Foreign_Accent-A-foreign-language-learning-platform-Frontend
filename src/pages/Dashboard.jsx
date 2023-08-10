@@ -29,31 +29,33 @@ const Dashboard = () => {
   console.log(isAdmin && "admin");
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-white">
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content h-full">
+        <div className="drawer-content h-full bg-white">
           {/* Page content here */}
           <label
             htmlFor="my-drawer"
-            className="btn w-full drawer-button bg-yellow-600 hover:bg-yellow-700 rounded-none h-full"
+            className="btn w-full drawer-button theme-bg hover:bg-green-500 rounded-none h-full"
           >
-            <span>Click to Open Dashboard Navigator</span>
+            <span className="text-white">
+              Click to Open Dashboard Navigator
+            </span>
             <AiFillCaretRight className="text-2xl text-white"></AiFillCaretRight>
           </label>
         </div>
         <div className="drawer-side z-20">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+          <ul className="menu p-4 w-80 h-full text-base-content bg-white">
             {/* Sidebar content here */}
 
             <li>
               {isAdmin && (
                 <Link
                   to="manage-classes"
-                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                  className="py-3 my-1 shadow-md border border-gray-300"
                 >
-                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                  <span className="h-8 w-8 theme-bg flex items-center rounded justify-center">
                     <BsFillFileEarmarkSpreadsheetFill className="text-white text-2xl"></BsFillFileEarmarkSpreadsheetFill>
                   </span>
 
@@ -63,9 +65,9 @@ const Dashboard = () => {
               {isInstructor && (
                 <Link
                   to="add-class"
-                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                  className="py-3 my-1 shadow-md border border-gray-300"
                 >
-                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                  <span className="h-8 w-8 theme-bg flex items-center rounded justify-center">
                     <IoMdAddCircle className="text-white text-2xl"></IoMdAddCircle>
                   </span>
 
@@ -75,9 +77,9 @@ const Dashboard = () => {
               {isUser && (
                 <Link
                   to="selected-classes"
-                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                  className="py-3 my-1 shadow-md border border-gray-300"
                 >
-                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                  <span className="h-8 w-8 theme-bg flex items-center rounded justify-center">
                     <BsCartCheckFill className="text-white text-2xl"></BsCartCheckFill>
                   </span>
 
@@ -90,9 +92,9 @@ const Dashboard = () => {
               {isAdmin && (
                 <Link
                   to="manage-users"
-                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                  className="py-3 my-1 shadow-md border border-gray-300"
                 >
-                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                  <span className="h-8 w-8 theme-bg flex items-center rounded justify-center">
                     <FaUser className="text-white text-2xl"></FaUser>
                   </span>
 
@@ -102,9 +104,9 @@ const Dashboard = () => {
               {isInstructor && (
                 <Link
                   to="my-classes"
-                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                  className="py-3 my-1 shadow-md border border-gray-300"
                 >
-                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                  <span className="h-8 w-8 theme-bg flex items-center rounded justify-center">
                     <FaBookReader className="text-white text-2xl"></FaBookReader>
                   </span>
 
@@ -114,9 +116,9 @@ const Dashboard = () => {
               {isUser && (
                 <Link
                   to="enrolled-classes"
-                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                  className="py-3 my-1 shadow-md border border-gray-300"
                 >
-                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                  <span className="h-8 w-8 theme-bg flex items-center rounded justify-center">
                     <BsFillCheckCircleFill className="text-white text-2xl"></BsFillCheckCircleFill>
                   </span>
                   <span>My Enrolled Classes</span>
@@ -128,9 +130,9 @@ const Dashboard = () => {
               {isUser && (
                 <Link
                   to="payment-history"
-                  className="bg-yellow-50 py-3 my-1 shadow-md"
+                  className="py-3 my-1 shadow-md border border-gray-300"
                 >
-                  <span className="h-8 w-8 bg-yellow-600 flex items-center rounded justify-center">
+                  <span className="h-8 w-8 theme-bg flex items-center rounded justify-center">
                     <BsWalletFill className="text-white text-2xl"></BsWalletFill>
                   </span>
                   <span>Payment history</span>

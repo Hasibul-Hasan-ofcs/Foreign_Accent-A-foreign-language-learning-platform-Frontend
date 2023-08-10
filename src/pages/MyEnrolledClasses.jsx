@@ -46,7 +46,7 @@ const MyEnrolledClasses = () => {
           return (
             <div key={el._id}>
               {!el.transaction_id ? (
-                <></>
+                <p className="text-center">Nothing to show</p>
               ) : (
                 <div className="border rounded-md shadow-md p-4 my-5 flex justify-between items-center flex-col md:flex-row">
                   <img
