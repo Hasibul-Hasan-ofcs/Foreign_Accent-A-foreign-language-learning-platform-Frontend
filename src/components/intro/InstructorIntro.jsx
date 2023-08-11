@@ -9,6 +9,7 @@ import "./intro.css";
 import FlipNumberInt from "../flipNumbers/FlipNumberInt";
 import CountUp from "react-countup";
 import { Link } from "react-router-dom";
+import BoxReveal from "../framer/BoxReveal";
 
 const InstructorIntro = () => {
   return (
@@ -17,20 +18,25 @@ const InstructorIntro = () => {
       id="insIntro"
     >
       <div className="w-full lg:w-1/2 pe-2 lg:pe-8 py-7 lg:py-0 flex flex-col items-center lg:items-start">
-        <h1 className="font-semibold text-4xl text-gray-900  text-center lg:text-start">
-          Find the best <span className="theme-text">language</span>
-          <br /> courses from best <br />
-          <span className="theme-text">Mentors</span>
-        </h1>
-        <p className="text-center lg:text-start py-5">
-          Discover the pinnacle of language courses, guided by the expertise of
-          the finest mentors in the field. Our carefully crafted curriculum
-          ensures immersive and interactive sessions, allowing you to grasp the
-          intricacies of the language effortlessly. Experience a supportive and
-          dynamic environment, where your growth as a linguist is our utmost
-          priority. Join us today for the best language courses, led by the best
-          mentors, and embark on a path towards linguistic excellence.
-        </p>
+        <BoxReveal delayProp={0.2}>
+          <h1 className="font-semibold text-4xl text-gray-900  text-center lg:text-start">
+            Find the best <span className="theme-text">language</span>
+            <br /> courses from best <br />
+            <span className="theme-text">Mentors</span>
+          </h1>
+        </BoxReveal>
+        <BoxReveal delayProp={0.4}>
+          <p className="text-center lg:text-start py-5">
+            Discover the pinnacle of language courses, guided by the expertise
+            of the finest mentors in the field. Our carefully crafted curriculum
+            ensures immersive and interactive sessions, allowing you to grasp
+            the intricacies of the language effortlessly. Experience a
+            supportive and dynamic environment, where your growth as a linguist
+            is our utmost priority. Join us today for the best language courses,
+            led by the best mentors, and embark on a path towards linguistic
+            excellence.
+          </p>
+        </BoxReveal>
 
         <div className="flex gap-y-3 py-7 justify-between w-full">
           <div className="flex flex-col gap-3 w-1/2 items-center">
@@ -92,11 +98,13 @@ const InstructorIntro = () => {
           </div>
         </div>
 
-        <Link to="/classes">
-          <button className="theme-bg text-white font-bold rounded-lg mt-7 p-5 hover:opacity-80">
-            Start Exploring &rarr;
-          </button>
-        </Link>
+        <BoxReveal delayProp={0.6}>
+          <Link to="/classes">
+            <button className="theme-bg text-white font-bold rounded-lg mt-7 p-5 hover:opacity-80">
+              Start Exploring &rarr;
+            </button>
+          </Link>
+        </BoxReveal>
       </div>
       <div className="w-full lg:w-1/2 relative min-h-screen">
         <div className="back-box-shape absolute top-0 right-0 theme-bg h-full w-full"></div>
