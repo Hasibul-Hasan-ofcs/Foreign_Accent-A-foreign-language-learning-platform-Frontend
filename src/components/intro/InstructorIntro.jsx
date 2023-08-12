@@ -10,6 +10,7 @@ import FlipNumberInt from "../flipNumbers/FlipNumberInt";
 import CountUp from "react-countup";
 import { Link } from "react-router-dom";
 import BoxReveal from "../framer/BoxReveal";
+import { Parallax } from "react-scroll-parallax";
 
 const InstructorIntro = () => {
   return (
@@ -108,17 +109,26 @@ const InstructorIntro = () => {
       </div>
       <div className="w-full lg:w-1/2 relative min-h-screen">
         <div className="back-box-shape absolute top-0 right-0 theme-bg h-full w-full"></div>
-        <div className="exp-box border absolute top-32 right-8 p-6 shadow-2xl rounded-2xl bg-white w-60 h-48 flex justify-center items-center">
-          <h1 className="text-2xl font-bold text-gray-800 text-center">
-            Expert Language Instructors
-          </h1>
-        </div>
-        <div className="inline-block rounded-3xl p-4 shadow-2xl absolute top-0 left-0 z-0 lg:z-10 perspective-left">
-          <img src={INS_4} className="h-500px rounded-2xl" />
-        </div>
+
+        <Parallax speed={10}>
+          <div className="exp-box border absolute top-32 right-8 p-6 shadow-2xl rounded-2xl bg-white w-60 h-48 flex justify-center items-center">
+            <h1 className="text-2xl font-bold text-gray-800 text-center">
+              Expert Language Instructors
+            </h1>
+          </div>
+        </Parallax>
+
+        <Parallax speed={-5}>
+          <div className="inline-block rounded-3xl p-4 shadow-2xl absolute top-0 left-0 z-0 lg:z-10 perspective-left">
+            <img src={INS_4} className="h-500px rounded-2xl" />
+          </div>
+        </Parallax>
+
+        {/* <Parallax speed={5}> */}
         <div className="inline-block rounded-3xl p-4 bg-white shadow-2xl absolute bottom-0 right-0 z-10 lg:z-0 perspective-right">
           <img src={INS_3} className="h-64 rounded-2xl" />
         </div>
+        {/* </Parallax> */}
       </div>
     </div>
   );

@@ -27,6 +27,7 @@ import MyClasses from "./pages/MyClasses.jsx";
 import Feedback from "./pages/Feedback.jsx";
 import ManageUsers from "./pages/ManageUsers.jsx";
 import AdminFeedBack from "./pages/AdminFeedBack.jsx";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 const queryClient = new QueryClient();
 
@@ -156,11 +157,13 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>
-      <AuthProvider>
-        <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-        </QueryClientProvider>
-      </AuthProvider>
+      <ParallaxProvider>
+        <AuthProvider>
+          <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} />
+          </QueryClientProvider>
+        </AuthProvider>
+      </ParallaxProvider>
     </HelmetProvider>
   </React.StrictMode>
 );
