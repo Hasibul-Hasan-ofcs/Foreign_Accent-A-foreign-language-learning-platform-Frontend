@@ -11,11 +11,12 @@ import CountUp from "react-countup";
 import { Link } from "react-router-dom";
 import BoxReveal from "../framer/BoxReveal";
 import { Parallax } from "react-scroll-parallax";
+import { MouseParallax } from "react-just-parallax";
 
 const InstructorIntro = () => {
   return (
     <div
-      className="container mx-auto flex flex-col-reverse lg:flex-row py-20"
+      className="container mx-auto flex flex-col-reverse lg:flex-row py-20 overflow-hidden"
       id="insIntro"
     >
       <div className="w-full lg:w-1/2 pe-2 lg:pe-8 py-7 lg:py-0 flex flex-col items-center lg:items-start">
@@ -108,7 +109,13 @@ const InstructorIntro = () => {
         </BoxReveal>
       </div>
       <div className="w-full lg:w-1/2 relative min-h-screen">
-        <div className="back-box-shape absolute top-0 right-0 theme-bg h-full w-full"></div>
+        <MouseParallax
+          strength={0.02}
+          enableOnTouchDevice
+          isAbsolutelyPositioned
+        >
+          <div className="back-box-shape absolute top-0 right-0 theme-bg h-full w-full"></div>
+        </MouseParallax>
 
         <Parallax speed={10}>
           <div className="exp-box border absolute top-32 right-8 p-6 shadow-2xl rounded-2xl bg-white w-60 h-48 flex justify-center items-center">
@@ -118,16 +125,28 @@ const InstructorIntro = () => {
           </div>
         </Parallax>
 
-        <Parallax speed={-5}>
+        {/* <Parallax speed={-5}> */}
+        <MouseParallax
+          strength={0.02}
+          enableOnTouchDevice
+          isAbsolutelyPositioned
+        >
           <div className="inline-block rounded-3xl p-4 shadow-2xl absolute top-0 left-0 z-0 lg:z-10 perspective-left">
             <img src={INS_4} className="h-500px rounded-2xl" />
           </div>
-        </Parallax>
+        </MouseParallax>
+        {/* </Parallax> */}
 
         {/* <Parallax speed={5}> */}
-        <div className="inline-block rounded-3xl p-4 bg-white shadow-2xl absolute bottom-0 right-0 z-10 lg:z-0 perspective-right">
-          <img src={INS_3} className="h-64 rounded-2xl" />
-        </div>
+        <MouseParallax
+          strength={0.07}
+          enableOnTouchDevice
+          isAbsolutelyPositioned
+        >
+          <div className="inline-block rounded-3xl p-4 bg-white shadow-2xl absolute bottom-0 right-0 z-10 lg:z-0 perspective-right">
+            <img src={INS_3} className="h-64 rounded-2xl" />
+          </div>
+        </MouseParallax>
         {/* </Parallax> */}
       </div>
     </div>
