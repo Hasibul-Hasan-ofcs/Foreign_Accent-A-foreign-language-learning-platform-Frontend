@@ -329,7 +329,7 @@ const Signup = () => {
 
             <div className="pt-12">
               <p className="text-center">
-                Don't have an account? &nbsp;
+                Already have an account? &nbsp;
                 <Link to="/login" className="font-bold">
                   <span className="theme-text hover:underline">Log in</span>
                 </Link>
